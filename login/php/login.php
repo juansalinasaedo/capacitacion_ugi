@@ -7,7 +7,7 @@ if(!empty($_POST)){
 			
 			$user_id=null;
 			$sql1= "select * from usuarios where (username=\"$_POST[username]\" or email=\"$_POST[username]\") and password=\"$_POST[password]\" ";
-			$con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+			$con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 			$query = $con->query($sql1);
 			while ($r=$query->fetch_array()) {
 				$user_id=$r["id"];

@@ -116,7 +116,7 @@ if ($conex)
                                                                               //Guardamos el ingreso al Sistema.
                                                                               $ip=$_SERVER['REMOTE_ADDR'];
                                                                               $sistema="Sistema de Tramitacion";
-                                                                              //mysql_connect("localhost", "root", "");
+                                                                              //mysql_connect("127.0.0.1", "root", "");
                                                                               
                                                                               
                                                                               

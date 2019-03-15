@@ -17,7 +17,7 @@ header("content-disposition: attachment;filename=Reportes.xls" );
 
 <?php
 $NombreBD = "capacitaciones";
-$Servidor = "localhost";
+$Servidor = "127.0.0.1";
 $Usuario = "root";
 $Password ="";
 $IdConexion = mysql_connect($Servidor, $Usuario, $Password);
