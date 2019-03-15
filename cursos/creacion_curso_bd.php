@@ -91,7 +91,7 @@ echo"<Script language='JavaScript' type='text/JavaScript'>
  }else{
 		
 
-        $con=mysqli_connect('localhost', 'root', '');
+        $con=mysqli_connect('127.0.0.1', 'root', '');
          $curso_nom = mysqli_query($con, "SELECT `nombre_curso` FROM `cursos` WHERE `nombre_curso` = '$nombre_curso'"); 
          echo $curso_nom;
         

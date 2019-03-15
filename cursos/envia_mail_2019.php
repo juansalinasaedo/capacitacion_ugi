@@ -6,7 +6,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 }
         
   $user_id=$_SESSION["user_id"];
-  $mysqli = new mysqli('localhost', 'root', '', 'capacitaciones');
+  $mysqli = new mysqli('127.0.0.1', 'root', '', 'capacitaciones');
   mysqli_set_charset($mysqli,'utf8'); // para mostrar correctamente los acentos y las ñ 
 ?>
 
@@ -58,8 +58,8 @@ exit;
 
 //		$ip_usuario=$_SERVER["REMOTE_ADDR"];  
 		  
-$con=mysqli_connect("localhost", "root", "");
-$conex=mysqli_connect("localhost", "root", "","capacitaciones");
+$con=mysqli_connect("127.0.0.1", "root", "");
+$conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
  echo $nombre_curso, " - " , $user_id, " - " , $mail, " - " , $id_curso;
 
 $result = mysqli_query($conex, "SELECT vacantes FROM cursos where vacantes >0 and id_curso=$id_curso");
@@ -88,7 +88,7 @@ if ($cant_vacantes==0){
 
 
 
-         $conex=mysqli_connect("localhost", "root", "","capacitaciones");
+         $conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
          $usuario_id = mysqli_query($conex, "SELECT id_usuario FROM inscripciones WHERE id_usuario='$user_id' and id_curso='$id_curso'");
          $id_usuario = 0;
           if($usuario_id)

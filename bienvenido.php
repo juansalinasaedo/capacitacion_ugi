@@ -4,7 +4,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	print "<script>alert(\"Acceso invalido!\");window.location='index.php';</script>";
 }
   $user_id=$_SESSION["user_id"];
-  $mysqli = new mysqli('localhost', 'root', '', 'capacitaciones');
+  $mysqli = new mysqli('127.0.0.1', 'root', '', 'capacitaciones');
   mysqli_set_charset($mysqli,'utf8'); // para mostrar correctamente los acentos y las ñ 
 
 ?>
@@ -92,7 +92,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 					<div class="col-xs-11 text-right menu-1">
 						<ul>
 						<?php
-			              $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+			              $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 			              $con->set_charset("utf8");
 			                //   $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = alumno.id_alumno";
 			              $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = '$user_id'";
@@ -113,7 +113,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 				
 				
 						<?php
-						  	$conex=mysqli_connect("localhost", "root", "","capacitaciones");
+						  	$conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
 							$result = mysqli_query($conex, "SELECT estamento FROM usuarios where estamento='rrhh' and id=$user_id");
 						      if($result)
 						      {
@@ -258,7 +258,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	$imagenes[4]='images/cursos/cursoX5.jpg'; 
 	$imagenes[5]='images/cursos/cursoX6.jpg'; 
 	$imagenes[6]='images/cursos/cursoX7.jpg';  	
-  	$conex=mysqli_connect("localhost", "root", "","capacitaciones");
+  	$conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
   	$utf8=mysqli_query($conex, "SET NAMES 'utf8'");
 	$result = mysqli_query($conex, "SELECT nombre_curso, id_curso, fechas_curso, horario_curso, tipo_jornada, id_relator, descripcion, ubicacion from cursos where disponible='si' and vacantes >0 and fechas_curso > NOW() order by fechas_curso DESC");
       if($result)
@@ -298,7 +298,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	<!--Codigo para div de inscripción de cursos (si es que el estamento del usuario es rrhh) -->		
 
   	<?php
-  	$conex=mysqli_connect("localhost", "root", "","capacitaciones");
+  	$conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
 	$result = mysqli_query($conex, "SELECT estamento FROM usuarios where estamento='rrhh' and id=$user_id");
       if($result)
       {
@@ -353,7 +353,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
   <!-- informe de inscritos en cursos -->
 
   	<?php
-  	$conex=mysqli_connect("localhost", "root", "","capacitaciones");
+  	$conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
 	$result = mysqli_query($conex, "SELECT estamento FROM usuarios where estamento='rrhh' and id=$user_id");
       if($result)
       {

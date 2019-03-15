@@ -87,7 +87,7 @@ $okey=$_POST['okey']; */
 
 
 		  
-$con=mysqli_connect("localhost", "root", "");
+$con=mysqli_connect("127.0.0.1", "root", "");
 
 		if (empty($_POST["nombre_relator"]) or empty($_POST["entidad_relator"])) {
 echo"<Script language='JavaScript' type='text/JavaScript'>
@@ -98,7 +98,7 @@ echo"<Script language='JavaScript' type='text/JavaScript'>
  }else{
 
         
-          $conex=mysqli_connect("localhost", "root", "","capacitaciones");
+          $conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
           $relator_nom = mysqli_query($conex, "SELECT `nombre_relator` FROM `relatores` WHERE `nombre_relator` like '$nombre_relator'");
           $result_nm_relator=0;
           if($relator_nom)

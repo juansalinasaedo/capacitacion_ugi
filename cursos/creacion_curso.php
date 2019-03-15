@@ -6,7 +6,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 }
         
   $user_id=$_SESSION["user_id"];
-  $mysqli = new mysqli('localhost', 'root', '', 'capacitaciones');
+  $mysqli = new mysqli('127.0.0.1', 'root', '', 'capacitaciones');
   mysqli_set_charset($mysqli,'utf8'); // para mostrar correctamente los acentos y las ñ 
 ?>
 
@@ -555,7 +555,7 @@ function MM_swapImgRestore() { //v3.0
 					<div class="col-xs-11 text-right menu-1">
 						<ul>
               <?php
-                    $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+                    $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
                     $con->set_charset("utf8");
                       //   $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = alumno.id_alumno";
                     $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = '$user_id'";
@@ -577,7 +577,7 @@ function MM_swapImgRestore() { //v3.0
               <li><a href="../bienvenido.php">Home</a></li>
             
             <?php
-                $conex=mysqli_connect("localhost", "root", "","capacitaciones");
+                $conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
               $result = mysqli_query($conex, "SELECT estamento FROM usuarios where estamento='rrhh' and id=$user_id");
                   if($result)
                   {
@@ -590,7 +590,7 @@ function MM_swapImgRestore() { //v3.0
               } ?>
 
                 <?php
-                $conex=mysqli_connect("localhost", "root", "","capacitaciones");
+                $conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
               $result = mysqli_query($conex, "SELECT estamento FROM usuarios where estamento='rrhh' and id=$user_id");
                   if($result)
                   {
@@ -672,7 +672,7 @@ function MM_swapImgRestore() { //v3.0
 					</div>
 
           <?php
-      //        $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+      //        $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
            //   $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = alumno.id_alumno";
         //      $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = '$user_id'";
           //    if ( $alumno=mysqli_query($con, $sql) ) {

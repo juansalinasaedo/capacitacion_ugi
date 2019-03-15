@@ -6,7 +6,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 }
         
   $user_id=$_SESSION["user_id"];
-  $mysqli = new mysqli('localhost', 'root', '', 'capacitaciones');
+  $mysqli = new mysqli('127.0.0.1', 'root', '', 'capacitaciones');
   mysqli_set_charset($mysqli,'utf8'); // para mostrar correctamente los acentos y las ñ 
 ?>
 
@@ -50,8 +50,8 @@ function scriptAlertGo( $msn, $url ){
     $nombre_alumno=$_POST["nombre_alumno"];
 //		$ip_usuario=$_SERVER["REMOTE_ADDR"];  
 		  
-$con=mysqli_connect("localhost", "root", "");
-$conex=mysqli_connect("localhost", "root", "","capacitaciones");
+$con=mysqli_connect("127.0.0.1", "root", "");
+$conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
  echo "ID del usuario: ", $id_usuario, " <br> ","Opcion de aprobacion seleccionada: ", $aprobacion,"<br>","ID del curso: ", $id_cursos, "<br>";
 
 $result = mysqli_query($conex, "UPDATE inscripciones SET  aprobado = 'aprobado' where id_usuario='$id_usuario' and id_curso='$id_cursos'");
