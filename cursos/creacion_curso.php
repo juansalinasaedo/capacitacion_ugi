@@ -714,14 +714,14 @@ function MM_swapImgRestore() { //v3.0
               <div class="col-md-12">
                  <input class="form-control required" type="date" name="fecha_curso" id="fecha_curso" placeholder="Fecha de realización">
 
-                  <!--   <div class="button-group">
+                     <div class="button-group">
                       <a href="javascript:void(0)" class="btn btn-primary; color: #1f27ba" id="plus5_2">Añadir mas fechas</a>
                       <a href="javascript:void(0)" class="btn btn-danger" id="minus5_2">Remover fechas</a>
                   </div>
                       </div>
                     </div>
 
-           <script type="text/javascript" src="js/script_fecha_dinamica.js"></script>   -->                       
+           <script type="text/javascript" src="js/script_fecha_dinamica.js"></script>                         
 
          <!--  fin Fecha del curso -->
 
