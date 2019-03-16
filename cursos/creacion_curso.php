@@ -695,46 +695,36 @@ function MM_swapImgRestore() { //v3.0
 				<div class="col-md-6 animate-box">
 					<h3>Complete los datos solicitados</h3>
 					<form action="creacion_curso_bd.php" method="post" enctype="multipart/form-data" name="form1" target="_self" id="form1">
-						<div class="row form-group">
-
-              <!-- nombre curso -->
+						
+            <!-- nombre curso -->
+            <div class="row form-group">
 							<div class="col-md-12">
-
 								  <input type="text" name="nombre_curso" id="nombre_curso" class="form-control" placeholder="Nombre del curso">
 							</div> 
-						
 						</div> 
-
             <!-- fin nombre curso -->
 
             <input type="hidden" id="dir" name="ip" value="<?php echo $ip_usuario; ?>"> <!-- Podría ser <?=$ip?>, como fomra abreviada -->
 
-					<!-- Fecha del curso -->         
-             <div class="row form-group">
+					  <!-- Fecha del curso -->         
+            <div class="row form-group" id="dform_date">
               <div class="col-md-12">
-                 <input class="form-control required" type="date" name="fecha_curso" id="fecha_curso" placeholder="Fecha de realización">
-
-                     <div class="button-group">
-                      <a href="javascript:void(0)" class="btn btn-primary; color: #1f27ba" id="plus5_2">Añadir mas fechas</a>
-                      <a href="javascript:void(0)" class="btn btn-danger" id="minus5_2">Remover fechas</a>
-                  </div>
-                      </div>
-                    </div>
-
-           <script type="text/javascript" src="js/script_fecha_dinamica.js"></script>                         
-
-         <!--  fin Fecha del curso -->
+                <input class="form-control required" type="date" name="fecha_curso" id="fecha_curso" placeholder="Fecha de realización">
+                <div class="button-group">
+                  <a href="javascript:void(0)" class="btn btn-primary; color: #1f27ba" id="plus5_2">Añadir mas fechas</a>
+                  <a href="javascript:void(0)" class="btn btn-danger" id="minus5_2">Remover fechas</a>
+                </div>
+              </div>
+            </div>
+            <!--  fin Fecha del curso -->
 
             <!-- horario del curso -->
-
             <div class="row form-group">
               <div class="col-md-12">
                <input type="time" name="horario_curso" id="horario_curso" class="form-control" placeholder="Horario del curso">
               </div>
             </div>
-
             <!-- fin horario del curso -->
-
 
             <!-- Tipo de jornada -->
             <div class="row form-group">
@@ -751,15 +741,14 @@ function MM_swapImgRestore() { //v3.0
             <!-- fin Tipo de jornada -->
 
             <!-- cantidad de horas -->
-             <div class="row form-group">
+            <div class="row form-group">
               <div class="col-md-12">
                 <input type="text" name="numero_horas" id="numero_horas" class="form-control" placeholder="Cantidad de horas" onkeypress="return valideKey(event);" >
               </div>
             </div>
+            <!-- fin cantidad de horas -->
 
-             <!-- fin cantidad de horas -->
-
-             <!-- codigo SIGPER -->
+            <!-- codigo SIGPER -->
             <div class="row form-group">
               <div class="col-md-12">
                 <input type="text" name="sigper" id="sigper" class="form-control" placeholder="Codigo SIGPER">
@@ -809,68 +798,34 @@ function MM_swapImgRestore() { //v3.0
             <!-- fin ambito -->
 
         
-      <!-- relatores -->
-        <div class="row form-group" id="dynamic_form">
-            <div class="col-md-12">
+            <!-- relatores -->
+            <div class="row form-group" id="dynamic_form">
+              <div class="col-md-12">
                   <select name="p_name" id="p_name" class="form-control" style="height: 50px" >
                     <option value=''>Elija un relator</option>
                     <?php
-                        $query = $mysqli -> query ("SELECT id_relator, nombre_relator FROM relatores");
-                        while ($valores = mysqli_fetch_array($query)) {
-                          echo '<option value="'.$valores['id_relator'].'">'.$valores['nombre_relator'].'</option>';
-                        }
-                       ?>
+                    $query = $mysqli -> query ("SELECT id_relator, nombre_relator FROM relatores");
+                    while ($valores = mysqli_fetch_array($query)) {
+                      echo '<option value="'.$valores['id_relator'].'">'.$valores['nombre_relator'].'</option>';
+                    }?>
                   </select>
 
                   <div class="button-group">
                       <a href="javascript:void(0)" class="btn btn-primary; color: #1f27ba" id="plus5">Añadir mas relatores</a>
                       <a href="javascript:void(0)" class="btn btn-danger" id="minus5">Remover Relator</a>
-                  </div>
+                  </div> 
+              </div> 
+            </div>
 
-                  <script type="text/javascript">
-      
-                $(document).ready(function() {
-                  var dynamic_form =  $("#dynamic_form").dynamicForm("#dynamic_form","#plus5", "#minus5", {
-                    limit:10,
-                    formPrefix : "dynamic_form",
-                    normalizeFullForm : false
-                });
-
-                  dynamic_form.inject([{p_name: 'Hemant',quantity: '123',remarks: 'testing remark'},{p_name: 'Harshal',quantity: '123',remarks: 'testing remark'}]);
-
-                $("#dynamic_form #minus5").on('click', function(){
-                  var initDynamicId = $(this).closest('#dynamic_form').parent().find("[id^='dynamic_form']").length;
-                  if (initDynamicId === 2) {
-                    $(this).closest('#dynamic_form').next().find('#minus5').hide();
-                  }
-                  $(this).closest('#dynamic_form').remove();
-                });
-
-                $('form').on('submit', function(event){
-                    var values = {};
-                $.each($('form').serializeArray(), function(i, field) {
-                    values[field.name] = field.value;
-                });
-                console.log(values) 
-                    event.preventDefault();
-                  })
-                });
-
-                </script>
-       
-      <!-- fin relatores -->
-              </div> </div>      
-
+            <!-- fin relatores -->
             <br>
-					<div class="row form-group">
-              <div class="col-md-12">
-
-                <a href="relatores_embed.php?keepThis=true&amp;TB_iframe=true&amp;height=280&amp;width=680" class="thickbox">    <h3>Si quiere agregar otro relator al listado, haga click aquí</h3>  </a>
-
-
+					
+          <div class="row form-group">
+            <div class="col-md-12">
+              <a href="relatores_embed.php?keepThis=true&amp;TB_iframe=true&amp;height=280&amp;width=680" class="thickbox">    <h3>Si quiere agregar otro relator al listado, haga click aquí</h3>  </a>
 							<input type="submit" name="enviar" onclick="valida_envia()" value="Enviar inscripción" class="btn btn-primary" id="enviar">
 						</div>
-            </div>
+          </div>
             
 					</form>		
 				</div>
@@ -956,39 +911,18 @@ $(document).ready(function(){
   <script src="js/datepicker_func.js"></script>
   <script type="text/javascript" src="js/dynamic-form.js"></script>
 
+  <!-- SCRIPT CAMPOS DINAMICOS -->
+  <script type="text/javascript" src="js/script_fecha_dinamica.js"></script>
+  <!-- END SCRIPT CAMPOS DINAMICOS -->
 
+  <!-- thickbox -->
+  <script language="javascript" type="text/javascript" src="../thickbox/javascript/jquery.js"></script>
+  <script language="javascript" type="text/javascript" src="../thickbox/javascript/thickbox.js"></script>
+  <link rel="stylesheet" href="../css/thickbox.css" type="text/css" media="screen"> 
+  <!-- fin --> 
 
-
-<!-- script que aumenta relatores del curso -->
- <!--  <script>
-        $(document).ready(function() {
-          var dynamic_form =  $("#dynamic_form").dynamicForm("#dynamic_form","#plus5", "#minus5", {
-            limit:10,
-            formPrefix : "dynamic_form",
-            normalizeFullForm : false
-        });
-
-          dynamic_form.inject([{p_name: 'Hemant',quantity: '123',remarks: 'testing remark'},{p_name: 'Harshal',quantity: '123',remarks: 'testing remark'}]);
-
-        $("#dynamic_form #minus5").on('click', function(){
-          var initDynamicId = $(this).closest('#dynamic_form').parent().find("[id^='dynamic_form']").length;
-          if (initDynamicId === 2) {
-            $(this).closest('#dynamic_form').next().find('#minus5').hide();
-          }
-          $(this).closest('#dynamic_form').remove();
-        });
-
-        $('form').on('submit', function(event){
-            var values = {};
-        $.each($('form').serializeArray(), function(i, field) {
-            values[field.name] = field.value;
-        });
-        console.log(values)
-            event.preventDefault();
-          })
-        });
-    </script>
-</body><script type="text/javascript">
+	</body>
+  <script type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36251023-1']);
@@ -1001,18 +935,6 @@ $(document).ready(function(){
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script> -->
-
-
-<!-- fin script que aumenta relatores del curso -->
-
-
-<!-- thickbox -->
-<script language="javascript" type="text/javascript" src="../thickbox/javascript/jquery.js"></script>
-<script language="javascript" type="text/javascript" src="../thickbox/javascript/thickbox.js"></script>
-<link rel="stylesheet" href="../css/thickbox.css" type="text/css" media="screen"> 
-<!-- fin --> 
-
-	</body>
+</script>
 </html>
 
