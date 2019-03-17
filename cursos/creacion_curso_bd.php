@@ -67,20 +67,58 @@ $okey=$_POST['okey']; */
     $descripcion=$_POST["descripcion"];
 		$id_ambito=$_POST["ambito"];
     $horas_curso=$_POST["numero_horas"];
-    $fecha_curso=$_POST["fecha_curso"];
+   // $fecha_curso=$_POST["fecha_curso"];
 
-    //recibes el valor del formulario 
+    //recibes el valor del formulario (relator)
     $arr_relatores= (isset($_POST["dynamic_form"]))?$_POST["dynamic_form"]["dynamic_form"]:null;
-    //creas un array simple
+    //creas un array simple (relator)
     $arr_rel = array();
     foreach ($arr_relatores as $key_rel => $row_rel) $arr_rel[$key_rel] = $row_rel['p_name'];
-    //parseas el array para imprimirlo como texto.
+    //parseas el array para imprimirlo como texto.(relator)
     $p_name = implode(', ', $arr_rel);
 
 
 
-echo $p_name;
-echo $fecha_curso;
+     //recibes el valor del formulario (fechas curso)
+    $arr_fechas= (isset($_POST["dform_date"]))?$_POST["dform_date"]["dform_date"]:null;
+    //creas un array simple (fechas curso)
+    $arr_fech = array();
+    foreach ($arr_fechas as $key_fech => $row_fech) $arr_fech[$key_fech] = $row_fech['fecha_curso'];
+    //parseas el array para imprimirlo como texto. (fechas curso)
+    $fecha_curso = implode(', ', $arr_fech);
+
+
+
+$conex=mysqli_connect("localhost", "root", "","capacitaciones");
+$result = mysqli_query($conex, "SELECT `fechas_curso` FROM `cursos` where  id_relator in ($p_name) and `nombre_curso` = '$nombre_curso'");
+if ($result)
+{
+
+/*  while ($obj = mysqli_fetch_array ($result))
+{
+   $fecha_arreglado=array_chunk($obj, 2, true);
+   $insert_fechas = mysqli_query($conex, "INSERT INTO `capacitaciones`.`capacitacion_multiple` (`id_relator`, `id_curso`, `fechas_curso`) VALUES ('$arr_rel', 'prueba', '$fecha_arreglado')");
+}}  */
+
+
+
+Foreach ($obj as $key => $result) {
+
+ /* $fecha_arreglado=array_chunk($row, 2, true);
+   $insert_fechas = mysqli_query($conex, "INSERT INTO `capacitaciones`.`capacitacion_multiple` (`id_relator`, `id_curso`, `fechas_curso`) VALUES ('$arr_rel', 'prueba', '$fecha_arreglado')");*/
+
+   print_r($obj); 
+}}
+
+//print_r($row); 
+//echo " - ";
+
+
+//print_r($fecha_arreglado);
+//echo $arr_fech, " - ", $p_name;
+
+// echo date('d-m-y', strtotime($cant_fechas));
+
 
 		if (empty($_POST["nombre_curso"]) or empty($_POST["vacantes"]) or empty($_POST["ubicacion"]) ) {
 echo"<Script language='JavaScript' type='text/JavaScript'>
@@ -91,7 +129,7 @@ echo"<Script language='JavaScript' type='text/JavaScript'>
  }else{
 		
 
-        $con=mysqli_connect('127.0.0.1', 'root', '');
+        $con=mysqli_connect('localhost', 'root', '');
          $curso_nom = mysqli_query($con, "SELECT `nombre_curso` FROM `cursos` WHERE `nombre_curso` = '$nombre_curso'"); 
          echo $curso_nom;
         
@@ -103,13 +141,13 @@ echo"<Script language='JavaScript' type='text/JavaScript'>
 
 			  if (mysqli_query($con, $sql)) { 
 			   
-		  	   scriptAlertGo('!El curso fue inscrito correctamente!','../bienvenido.php');
+		  	   scriptAlertGo('!El curso fue inscrito correctamente!','#');
 		 	  }else{
-			   scriptAlert('!Ha ocurrido un problema en la inscripción, por favor intente nuevamente!','creacion_curso.php');
+			   scriptAlert('!Ha ocurrido un problema en la inscripción, por favor intente nuevamente!','#');
 			  }	   
 
          }else{
-         	scriptAlertGo('El nombre del curso ya esta registrado en la base de datos','../bienvenido.php');
+         	scriptAlertGo('El nombre del curso ya esta registrado en la base de datos','#');
          }
 
 }

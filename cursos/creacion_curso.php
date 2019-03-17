@@ -13,45 +13,45 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 <!DOCTYPE HTML>
 <html>
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Creación del curso</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="#" />
-	<meta name="keywords" content="#" />
-	<meta name="author" content="#" />
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Creación del curso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="#" />
+  <meta name="keywords" content="#" />
+  <meta name="author" content="#" />
 
   <link rel="shortcut icon" href="../images/favicon.ico" />
 
 
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+    <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content=""/>
+  <meta property="og:image" content=""/>
+  <meta property="og:url" content=""/>
+  <meta property="og:site_name" content=""/>
+  <meta property="og:description" content=""/>
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:card" content="" />
 
-	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="../css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="../css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="../css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+  
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="../css/animate.css">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="../css/bootstrap.css">
 
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="../css/magnific-popup.css">
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" href="../css/magnific-popup.css">
 
-	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="../css/owl.carousel.min.css">
-	<link rel="stylesheet" href="../css/owl.theme.default.min.css">
+  <!-- Owl Carousel  -->
+  <link rel="stylesheet" href="../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
 
 
   <!-- GOOGLE WEB FONT -->
@@ -96,77 +96,77 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 <!-- Theme style  -->
 <link rel="stylesheet" href="../css/style.css">
 
-	<!-- Modernizr JS -->
-<!--	<script src="../js/modernizr-2.6.2.min.js"></script> -->
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+  <!-- Modernizr JS -->
+<!--  <script src="../js/modernizr-2.6.2.min.js"></script> -->
+  <!-- FOR IE9 below -->
+  <!--[if lt IE 9]>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
 
 
 <script language="javascript">
 function checkFields() {
 
-	var email = /^(.+\@.+\..+)$/	        	//direccion de correo electronico
-	var nombre = /^([a-z]|[A-Z]|á|é|í|ó|ú|ñ|ü|\s|\.|-\')+$/			//letras, '.' y '-' o vacio
-	var dir = /^([a-z]|[A-Z]|[0-9\s\+\-\#\,\;\.])+$/	//numeros, espacios, + o -
-	var rut = /^([a-z]|[A-Z]|[0-9\s\+\-\.])+$/	//numeros, espacios, + o -
-	var x
+  var email = /^(.+\@.+\..+)$/            //direccion de correo electronico
+  var nombre = /^([a-z]|[A-Z]|á|é|í|ó|ú|ñ|ü|\s|\.|-\')+$/     //letras, '.' y '-' o vacio
+  var dir = /^([a-z]|[A-Z]|[0-9\s\+\-\#\,\;\.])+$/  //numeros, espacios, + o -
+  var rut = /^([a-z]|[A-Z]|[0-9\s\+\-\.])+$/  //numeros, espacios, + o -
+  var x
 
- 	//comprueba campo de nombre
-	if(!nombre.test(formulario.nombre.value)) { 
-		alert('Campo Nombre vacio')
-		return false
-	}   
+  //comprueba campo de nombre
+  if(!nombre.test(formulario.nombre.value)) { 
+    alert('Campo Nombre vacio')
+    return false
+  }   
 
-	if(!dir.test(formulario.dir.value)) { 
-		alert('Campo Dirección vacio')
-		return false
-	} 
-	
-	
-	//comprueba campo de rut
-	if(!rut.test(formulario.rut.value)) { 
-		alert('Rut no valido')
-		return false
-	}  
-	if (formulario.dv.rut_pass=='R'){
-		if (formulario.dv.value!=formulario.digito.value){
-			alert('Digito Verificador erroneo.')
-			return false
-		}	
-		
-		
-	}
-	
-	
-	if(formulario.participation.value=="Seleccione") { 
-		alert('Seleccione opción de Inscripción')
-		return false
-	} 	
-								   	
+  if(!dir.test(formulario.dir.value)) { 
+    alert('Campo Dirección vacio')
+    return false
+  } 
+  
+  
+  //comprueba campo de rut
+  if(!rut.test(formulario.rut.value)) { 
+    alert('Rut no valido')
+    return false
+  }  
+  if (formulario.dv.rut_pass=='R'){
+    if (formulario.dv.value!=formulario.digito.value){
+      alert('Digito Verificador erroneo.')
+      return false
+    } 
+    
+    
+  }
+  
+  
+  if(formulario.participation.value=="Seleccione") { 
+    alert('Seleccione opción de Inscripción')
+    return false
+  }   
+                    
 
-	//comprueba campo de email
-	if(!email.test(formulario.email.value)) { 
-		alert('Campo Email no valido')
-		return false
-	}  
-	
-	if(!email.test(formulario.re_email.value)) { 
-		alert('Campo Email no valido')
-		return false
-	} 	
-	
-	if (formulario.email.value!=formulario.re_email.value){
-		alert('Correos distintos')
-		return false
-	}
-			
+  //comprueba campo de email
+  if(!email.test(formulario.email.value)) { 
+    alert('Campo Email no valido')
+    return false
+  }  
+  
+  if(!email.test(formulario.re_email.value)) { 
+    alert('Campo Email no valido')
+    return false
+  }   
+  
+  if (formulario.email.value!=formulario.re_email.value){
+    alert('Correos distintos')
+    return false
+  }
+      
 
-	
+  
 
-/*	alert('Los campos introducidos son CORRECTOS.')*/
-	return true			//cambiar por return true para ejecutar la accion del formulario
+/*  alert('Los campos introducidos son CORRECTOS.')*/
+  return true     //cambiar por return true para ejecutar la accion del formulario
 }
 </script>
 
@@ -528,32 +528,32 @@ function MM_swapImgRestore() { //v3.0
 <!-- fin script campos dinamicos -->
 
 
-	</head>
+  </head>
 
   <a id="thickbox"></a>
 
-	<body>
-		
-	<div class="fh5co-loader"></div>
-	
-	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
-		<div class="top">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 text-right">
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="top-menu">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-1">
-						<div id="fh5co-logo"><a href="../bienvenido.php"><img src="../images/resources/logo_blanco.png" style="width: 220px; height: 180px"></a></div>
-					</div>
-					<div class="col-xs-11 text-right menu-1">
-						<ul>
+  <body>
+    
+  <div class="fh5co-loader"></div>
+  
+  <div id="page">
+  <nav class="fh5co-nav" role="navigation">
+    <div class="top">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 text-right">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="top-menu">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-1">
+            <div id="fh5co-logo"><a href="../bienvenido.php"><img src="../images/resources/logo_blanco.png" style="width: 220px; height: 180px"></a></div>
+          </div>
+          <div class="col-xs-11 text-right menu-1">
+            <ul>
               <?php
                     $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
                     $con->set_charset("utf8");
@@ -611,28 +611,28 @@ function MM_swapImgRestore() { //v3.0
             <!--  <li class="btn-cta"><a href="#"><span>Login</span></a></li>
               <li class="btn-cta"><a href="#"><span>Create a Course</span></a></li> -->
             </ul>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-	</nav>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
 
-	<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(../images/curso2.jpg); margin-top: -50px;" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="display-t">
-						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<h1>CREACIÓN DE CURSO</h1>
-						<!--	<h2>pharetra dolor dui lobortis nulla</a></h2> -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+  <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(../images/curso2.jpg); margin-top: -50px;" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <div class="display-t">
+            <div class="display-tc animate-box" data-animate-effect="fadeIn">
+              <h1>CREACIÓN DE CURSO</h1>
+            <!--  <h2>pharetra dolor dui lobortis nulla</a></h2> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
 <?php
    function get_client_ip() {
@@ -656,20 +656,20 @@ function MM_swapImgRestore() { //v3.0
 
     ?>
 
-	<div id="fh5co-contact">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-5 col-md-push-1 animate-box">
-					
-					<div class="fh5co-contact-info">
-						<h3>Contactenos</h3>
-						<ul>
-							<li class="address">Unidad de Recursos Humanos, <br> Fiscalía Regional del Maule</li>
-							<!-- <li class="phone"><a href="tel://712733323">71 2733323</a></li>
-							<li class="email"><a href="mailto:jfsalinas@minpublico.cl">jfsalinas@minpublico.cl</a></li> -->
-							<li class="url"><a href="http://172.17.107.250/v4/" target="_blank">Intranet Regional</a></li>
-						</ul>
-					</div>
+  <div id="fh5co-contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 col-md-push-1 animate-box">
+          
+          <div class="fh5co-contact-info">
+            <h3>Contactenos</h3>
+            <ul>
+              <li class="address">Unidad de Recursos Humanos, <br> Fiscalía Regional del Maule</li>
+              <!-- <li class="phone"><a href="tel://712733323">71 2733323</a></li>
+              <li class="email"><a href="mailto:jfsalinas@minpublico.cl">jfsalinas@minpublico.cl</a></li> -->
+              <li class="url"><a href="http://172.17.107.250/v4/" target="_blank">Intranet Regional</a></li>
+            </ul>
+          </div>
 
           <?php
       //        $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
@@ -691,22 +691,22 @@ function MM_swapImgRestore() { //v3.0
 
          //     echo $user_id;
           //  ?>
-				</div>
-				<div class="col-md-6 animate-box">
-					<h3>Complete los datos solicitados</h3>
-					<form action="creacion_curso_bd.php" method="post" enctype="multipart/form-data" name="form1" target="_self" id="form1">
-						
+        </div>
+        <div class="col-md-6 animate-box">
+          <h3>Complete los datos solicitados</h3>
+          <form action="creacion_curso_bd.php" method="post" enctype="multipart/form-data" name="form1" target="_self" id="form1">
+            
             <!-- nombre curso -->
             <div class="row form-group">
-							<div class="col-md-12">
-								  <input type="text" name="nombre_curso" id="nombre_curso" class="form-control" placeholder="Nombre del curso">
-							</div> 
-						</div> 
+              <div class="col-md-12">
+                  <input type="text" name="nombre_curso" id="nombre_curso" class="form-control" placeholder="Nombre del curso">
+              </div> 
+            </div> 
             <!-- fin nombre curso -->
 
             <input type="hidden" id="dir" name="ip" value="<?php echo $ip_usuario; ?>"> <!-- Podría ser <?=$ip?>, como fomra abreviada -->
 
-					  <!-- Fecha del curso -->         
+            <!-- Fecha del curso -->         
             <div class="row form-group" id="dform_date">
               <div class="col-md-12">
                 <input class="form-control required" type="date" name="fecha_curso" id="fecha_curso" placeholder="Fecha de realización">
@@ -715,7 +715,7 @@ function MM_swapImgRestore() { //v3.0
                   <a href="javascript:void(0)" class="btn btn-danger" id="minus5_2">Remover fechas</a>
                 </div>
               </div>
-            </div>
+            </div> <br>
             <!--  fin Fecha del curso -->
 
             <!-- horario del curso -->
@@ -731,8 +731,8 @@ function MM_swapImgRestore() { //v3.0
               <div class="col-md-12">
                   <select name="tipo_jornada" id="tipo_jornada" class="form-control" style="height: 50px" >
                     <option value=''>Jornada</option>
-                    <option value='Diurno'>Diurno</option>
-                    <option value='Vespertino'>Vespertino</option>
+                    <option value='Diurno'>Mañana</option>
+                    <option value='Vespertino'>Tarde</option>
                     <option value='Completa'>Completa</option>
                   </select>
               </div>
@@ -819,68 +819,68 @@ function MM_swapImgRestore() { //v3.0
 
             <!-- fin relatores -->
             <br>
-					
+          
           <div class="row form-group">
             <div class="col-md-12">
               <a href="relatores_embed.php?keepThis=true&amp;TB_iframe=true&amp;height=280&amp;width=680" class="thickbox">    <h3>Si quiere agregar otro relator al listado, haga click aquí</h3>  </a>
-							<input type="submit" name="enviar" onclick="valida_envia()" value="Enviar inscripción" class="btn btn-primary" id="enviar">
-						</div>
+              <input type="submit" name="enviar" onclick="valida_envia()" value="Enviar inscripción" class="btn btn-primary" id="enviar">
+            </div>
           </div>
             
-					</form>		
-				</div>
-			</div>
-			
-		</div>
-	</div>
-	
-<!--	<div id="map" class="fh5co-map"></div> -->
+          </form>   
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+<!--  <div id="map" class="fh5co-map"></div> -->
 
-<!--	<div id="fh5co-started" style="background-image:url(../images/img_bg_2.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Comenzemos</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-				</div>
-			</div>
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<p><a href="#" class="btn btn-default btn-lg">Create A Free Course</a></p>
-				</div>
-			</div>
-		</div>
-	</div> -->
+<!--  <div id="fh5co-started" style="background-image:url(../images/img_bg_2.jpg);">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row animate-box">
+        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+          <h2>Comenzemos</h2>
+          <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+        </div>
+      </div>
+      <div class="row animate-box">
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <p><a href="#" class="btn btn-default btn-lg">Create A Free Course</a></p>
+        </div>
+      </div>
+    </div>
+  </div> -->
 
-	</div>
+  </div>
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-	</div>
-	
-	<!-- jQuery -->
-	<script src="../js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="../js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="../js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="../js/jquery.waypoints.min.js"></script>
-	<!-- Stellar Parallax -->
-	<script src="../js/jquery.stellar.min.js"></script>
-	<!-- Carousel -->
-	<script src="../js/owl.carousel.min.js"></script>
-	<!-- countTo -->
-	<script src="../js/jquery.countTo.js"></script>
-	<!-- Magnific Popup -->
-	<script src="../js/jquery.magnific-popup.min.js"></script>
-	<script src="../js/magnific-popup-options.js"></script>
-	<!-- Google Map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-	<script src="../js/google_map.js"></script>
-	<!-- Main -->
-	<script src="../js/main.js"></script>
+  <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+  </div>
+  
+  <!-- jQuery -->
+  <script src="../js/jquery.min.js"></script>
+  <!-- jQuery Easing -->
+  <script src="../js/jquery.easing.1.3.js"></script>
+  <!-- Bootstrap -->
+  <script src="../js/bootstrap.min.js"></script>
+  <!-- Waypoints -->
+  <script src="../js/jquery.waypoints.min.js"></script>
+  <!-- Stellar Parallax -->
+  <script src="../js/jquery.stellar.min.js"></script>
+  <!-- Carousel -->
+  <script src="../js/owl.carousel.min.js"></script>
+  <!-- countTo -->
+  <script src="../js/jquery.countTo.js"></script>
+  <!-- Magnific Popup -->
+  <script src="../js/jquery.magnific-popup.min.js"></script>
+  <script src="../js/magnific-popup-options.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
+  <script src="../js/google_map.js"></script>
+  <!-- Main -->
+  <script src="../js/main.js"></script>
 
 
 <!-- script del modal -->
@@ -921,7 +921,7 @@ $(document).ready(function(){
   <link rel="stylesheet" href="../css/thickbox.css" type="text/css" media="screen"> 
   <!-- fin --> 
 
-	</body>
+  </body>
   <script type="text/javascript">
 
   var _gaq = _gaq || [];
