@@ -6,8 +6,6 @@ header("Content-Type: text/html;charset=utf-8");
 
 include ('conecta.php');
 
-
-
 //**************************** FUNCIONES ****************************//
 function scriptAlert( $msn ){
 
@@ -17,16 +15,13 @@ function scriptAlert( $msn ){
        echo $script;
 }
 
+function swal( $msn ){
 
-
-
- function swal( $msn ){
-
-       $script  = '<script language="JavaScript">';
-       $script .= 'title: "¡mensaje!"';
-      $script .= 'timer: 2000';
-       $script .= '</script>';
-       echo $script;
+  $script  = '<script language="JavaScript">';
+  $script .= 'title: "¡mensaje!"';
+  $script .= 'timer: 2000';
+  $script .= '</script>';
+  echo $script;
 }
 
 /**
@@ -89,35 +84,29 @@ $okey=$_POST['okey']; */
 
 
 
-$conex=mysqli_connect("localhost", "root", "","capacitaciones");
+$conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
 $result = mysqli_query($conex, "SELECT `fechas_curso` FROM `cursos` where  id_relator in ($p_name) and `nombre_curso` = '$nombre_curso'");
-if ($result)
+
+if (mysqli_num_rows($result) > 0)
 {
 
-/*  while ($obj = mysqli_fetch_array ($result))
-{
-   $fecha_arreglado=array_chunk($obj, 2, true);
-   $insert_fechas = mysqli_query($conex, "INSERT INTO `capacitaciones`.`capacitacion_multiple` (`id_relator`, `id_curso`, `fechas_curso`) VALUES ('$arr_rel', 'prueba', '$fecha_arreglado')");
-}}  */
+  while ($row_result = mysqli_fetch_array ($result))
+  {
+    //$fecha_arreglado = array_chunk($obj, 2, true);
+    
+    $fecha_arreglado = $row_result['fechas_curso'];
+    $insert_fechas = mysqli_query($conex, "INSERT INTO `capacitaciones`.`capacitacion_multiple` (`id_relator`, `id_curso`, `fechas_curso`) VALUES ('$arr_rel', 'prueba', '$fecha_arreglado')");
+  
+  }}
+  
+  //print_r($row); 
+  //echo " - ";
 
 
+  //print_r($fecha_arreglado);
+  //echo $arr_fech, " - ", $p_name;
 
-Foreach ($obj as $key => $result) {
-
- /* $fecha_arreglado=array_chunk($row, 2, true);
-   $insert_fechas = mysqli_query($conex, "INSERT INTO `capacitaciones`.`capacitacion_multiple` (`id_relator`, `id_curso`, `fechas_curso`) VALUES ('$arr_rel', 'prueba', '$fecha_arreglado')");*/
-
-   print_r($obj); 
-}}
-
-//print_r($row); 
-//echo " - ";
-
-
-//print_r($fecha_arreglado);
-//echo $arr_fech, " - ", $p_name;
-
-// echo date('d-m-y', strtotime($cant_fechas));
+  //echo date('d-m-y', strtotime($cant_fechas));
 
 
 		if (empty($_POST["nombre_curso"]) or empty($_POST["vacantes"]) or empty($_POST["ubicacion"]) ) {
@@ -129,7 +118,7 @@ echo"<Script language='JavaScript' type='text/JavaScript'>
  }else{
 		
 
-        $con=mysqli_connect('localhost', 'root', '');
+        $con=mysqli_connect('127.0.0.1', 'root', '');
          $curso_nom = mysqli_query($con, "SELECT `nombre_curso` FROM `cursos` WHERE `nombre_curso` = '$nombre_curso'"); 
          echo $curso_nom;
         
