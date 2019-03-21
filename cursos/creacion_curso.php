@@ -706,39 +706,27 @@ function MM_swapImgRestore() { //v3.0
 
             <input type="hidden" id="dir" name="ip" value="<?php echo $ip_usuario; ?>"> <!-- Podría ser <?=$ip?>, como fomra abreviada -->
 
-            <!-- Fecha del curso -->         
+            <label>Fechas, horarios y jornada de los cursos</label>
+
+            <!-- Fecha del curso, horario y jornada -->         
             <div class="row form-group" id="dform_date">
               <div class="col-md-12">
                 <input class="form-control required" type="date" name="fecha_curso" id="fecha_curso" placeholder="Fecha de realización">
+                <input type="time" required name="horario_curso" id="horario_curso" class="form-control" placeholder="Horario del curso">
+                <select name="tipo_jornada" id="tipo_jornada" class="form-control" style="height: 50px" >
+                    <option value=''>Jornada</option>
+                    <option value='Diurno'>Mañana</option>
+                    <option value='Vespertino'>Tarde</option>
+                    <option value='Completa'>Completa</option>
+                  </select>
                 <div class="button-group">
                   <a href="javascript:void(0)" class="btn btn-primary; color: #1f27ba" id="plus5_2">Añadir mas fechas</a>
                   <a href="javascript:void(0)" class="btn btn-danger" id="minus5_2">Remover fechas</a>
                 </div>
               </div>
             </div> <br>
-            <!--  fin Fecha del curso -->
-
-            <!-- horario del curso -->
-            <div class="row form-group">
-              <div class="col-md-12">
-               <input type="time" name="horario_curso" id="horario_curso" class="form-control" placeholder="Horario del curso">
-              </div>
-            </div>
-            <!-- fin horario del curso -->
-
-            <!-- Tipo de jornada -->
-            <div class="row form-group">
-              <div class="col-md-12">
-                  <select name="tipo_jornada" id="tipo_jornada" class="form-control" style="height: 50px" >
-                    <option value=''>Jornada</option>
-                    <option value='Diurno'>Mañana</option>
-                    <option value='Vespertino'>Tarde</option>
-                    <option value='Completa'>Completa</option>
-                  </select>
-              </div>
-            </div>
-
-            <!-- fin Tipo de jornada -->
+            <!--  fin Fecha del curso, horario y jornada -->
+            
 
             <!-- cantidad de horas -->
             <div class="row form-group">

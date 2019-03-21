@@ -1,11 +1,11 @@
 <?php //archivo de conexion base de datos
 
 
-/* $link = mysqli_connect("127.0.0.1","root","") or die(mysqli_error()); 
+/* $link = mysqli_connect("localhost","root","") or die(mysqli_error()); 
 mysqli_select_db("capacitaciones",$link); */
 
 // 1. Create a database connection
-$connection = mysqli_connect('127.0.0.1','root','');
+$connection = mysqli_connect('localhost','root','');
 if (!$connection) {
     die("Database connection failed");
 }

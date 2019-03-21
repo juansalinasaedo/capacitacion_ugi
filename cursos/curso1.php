@@ -6,7 +6,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 }
         
   $user_id=$_SESSION["user_id"];
-  $mysqli = new mysqli('127.0.0.1', 'root', '', 'capacitaciones');
+  $mysqli = new mysqli('localhost', 'root', '', 'capacitaciones');
   mysqli_set_charset($mysqli,'utf8'); // para mostrar correctamente los acentos y las ñ 
 ?>
 
@@ -545,7 +545,7 @@ function preguntar(event) {
 					<div class="col-xs-11 text-right menu-1">
 						<ul>
               <?php
-                    $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
+                    $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
                     $con->set_charset("utf8");
                       //   $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = alumno.id_alumno";
                     $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = '$user_id'";
@@ -568,7 +568,7 @@ function preguntar(event) {
 					<!--		<li class="active"><a href="cursos/curso1.php">Cursos disponibles</a></li> -->
 						
 						<?php
-                $conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
+                $conex=mysqli_connect("localhost", "root", "","capacitaciones");
               $result = mysqli_query($conex, "SELECT estamento FROM usuarios where estamento='rrhh' and id=$user_id");
                   if($result)
                   {
@@ -581,7 +581,7 @@ function preguntar(event) {
               } ?>
 
               <?php
-                $conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
+                $conex=mysqli_connect("localhost", "root", "","capacitaciones");
               $result = mysqli_query($conex, "SELECT estamento FROM usuarios where estamento='rrhh' and id=$user_id");
                   if($result)
                   {
@@ -674,7 +674,7 @@ function preguntar(event) {
                 <label for="fname">Nombre Inscrito: </label> 
 
               <?php
-              $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
+              $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
               $con->set_charset("utf8");
               $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = '$user_id'";
               if ( $alumno=mysqli_query($con, $sql) ) {
@@ -704,7 +704,7 @@ function preguntar(event) {
               <div class="col-md-12">
                 <label for="fname" style="margin-left: 15px;">Email del inscrito: </label> 
               <?php
-              $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
+              $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
               $con->set_charset("utf8");
               $sql="SELECT usuarios.email from usuarios inner join alumno on usuarios.id = '$user_id'";
               if ( $email=mysqli_query($con, $sql) ) {
@@ -732,7 +732,7 @@ function preguntar(event) {
               <div class="col-md-12">
                 <label for="fname" style="margin-left: 15px;">Estamento del inscrito: </label> 
               <?php
-              $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
+              $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
               $con->set_charset("utf8");
               $sql="SELECT usuarios.estamento from usuarios inner join alumno on usuarios.id = '$user_id'";
               if ( $estamento=mysqli_query($con, $sql) ) {
@@ -760,7 +760,7 @@ function preguntar(event) {
               <div class="col-md-12">
                 <label for="fname" style="margin-left: 15px;">Fiscalía del inscrito: </label> 
               <?php
-              $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
+              $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
               $con->set_charset("utf8");
               $sql="SELECT usuarios.fiscalia from usuarios inner join alumno on usuarios.id = '$user_id'";
               if ( $fiscalia=mysqli_query($con, $sql) ) {
@@ -803,11 +803,20 @@ function preguntar(event) {
             <div class="row form-group">
             <div class="col-md-12">
             <label for="fname" style="margin-left: 15px;">Fecha del curso: </label> 
+
             <?php
-                     $fechas_curso=$_POST["fechas_curso"];
-                
-                    echo "<input type='hidden' id='fechas_curso' name='fechas_curso' value='$fechas_curso'>"; 
-                 echo $fechas_curso; 
+                    $fechas_curso=$_POST["fechas_curso"];
+                    $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+                    $con->set_charset("utf8"); 
+                    $result = mysqli_query($conex, "SELECT fechas_curso FROM cursos where fechas_curso in ($fechas_curso)");
+                    if($result)
+                    {
+                        while ($registro = mysqli_fetch_object($result))
+                        {  
+                          echo "<input type='hidden' id='fechas_curso' name='fechas_curso' value='$fechas_curso'>"; 
+                          echo $registro->fechas_curso.PHP_EOL;  
+                      }
+                    }
             ?>
 
             </div>
@@ -852,14 +861,14 @@ function preguntar(event) {
             <label for="fname" style="margin-left: 15px;">Relatores del curso: </label> 
             <?php
                     $id_relator=$_POST["id_relator"];
-                    $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
+                    $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
                     $con->set_charset("utf8"); 
-                    $result = mysqli_query($conex, "SELECT nombre_relator FROM relatores where id_relator='$id_relator'");
+                    $result = mysqli_query($conex, "SELECT nombre_relator FROM relatores where id_relator in ($id_relator)");
                     if($result)
                     {
                         while ($registro = mysqli_fetch_object($result))
                         {  
-                          echo "<input type='hidden' id='id_relator' name='id_relator' value='$id_relator'>"; 
+                          echo "<input type='hidden' id='id_relator' name='id_relator' value='$id_relator'><br>"; 
                           echo $registro->nombre_relator.PHP_EOL;  
                       }
                     }
