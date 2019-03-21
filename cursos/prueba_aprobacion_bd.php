@@ -34,7 +34,7 @@ function scriptAlertGo( $msn, $url ){
     $id_usuario=$_POST["id_usuario"];
     $nombre_alumno=$_POST["nombre_alumno"];
 
-$con=mysqli_connect("localhost", "root", "");
+$con=mysqli_connect("127.0.0.1", "root", "");
 
 	//recibes el valor del formulario (relator)
     $arr_cursos= (isset($_POST["form1"]))?$_POST["form1"]["form1"]:null;

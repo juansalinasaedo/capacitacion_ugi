@@ -71,45 +71,9 @@ $okey=$_POST['okey']; */
 
 
 
-     //recibes el valor del formulario (fechas curso)
+    //recibes el valor del formulario (fechas curso)
     $arr_fechas= (isset($_POST["dform_date"]))?$_POST["dform_date"]["dform_date"]:null;
-    //creas un array simple (fechas curso)
-    $arr_fech = array();
-    foreach ($arr_fechas as $key_fech => $row_fech)
-    {
-       $arr_fech[$key_fech] = $row_fech['fecha_curso'];
-       
-
-    }
-    //parseas el array para imprimirlo como texto. (fechas curso)
-    $fechas_curso = implode(', ', $arr_fech);
-
-
-    //recibes el valor del formulario (horario del curso)
-    $arr_horario= (isset($_POST["dform_date"]))?$_POST["dform_date"]["dform_date"]:null;
-    //creas un array simple (horario del curso)
-    $arr_hor = array();
-    foreach ($arr_horario as $key_hor => $row_hor) $arr_hor[$key_hor] = $row_hor['horario_curso'];
-    //parseas el array para imprimirlo como texto. (horario del curso)
-    $horario_curso = implode(', ', $arr_hor);
-
-
-    //recibes el valor del formulario (tipo jornada)
-    $arr_jornada= (isset($_POST["dform_date"]))?$_POST["dform_date"]["dform_date"]:null;
-    //creas un array simple (tipo jornada)
-    $arr_jor = array();
-    foreach ($arr_jornada as $key_jor => $row_jor) $arr_jor[$key_jor] = $row_jor['tipo_jornada'];
-    //parseas el array para imprimirlo como texto. (tipo jornada)
-    $tipo_jornada = implode(', ', $arr_jor);
-
-
- print_r($horario_curso);
- echo ' - ';
- print_r($tipo_jornada);
- echo ' - ';
- print_r($p_name);
- echo ' - ';
-
+    
 
     if (empty($_POST["nombre_curso"]) or empty($_POST["vacantes"]) or empty($_POST["ubicacion"]) ) {
 echo"<Script language='JavaScript' type='text/JavaScript'>
@@ -120,32 +84,33 @@ echo"<Script language='JavaScript' type='text/JavaScript'>
  }else{
     
         // Query para obtener ultimo ID de curso
-     /*   $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+     /*   $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
         $obtener_ultimo_id = mysqli_query($con, "SELECT cursos.id_curso FROM `capacitaciones`.`cursos` order by cursos.id_curso desc limit 1");
          while ($row = $obtener_ultimo_id->fetch_assoc()) {
           echo "Ultima ID de cursos: ", $row['id_curso']."<br>";
           $id_padre = $row['id_curso']+1;
         }
 
-         // Query para obtener el nombre del curso
-         $curso_nom = mysqli_query($con, "SELECT `nombre_curso` FROM `cursos` WHERE `nombre_curso` = '$nombre_curso'"); 
-         echo "Nombre del curso: ";
-         echo $nombre_curso;
-         print_r($curso_nom);
-         echo "<br>", "Valor ID PADRE: ", " ", $id_padre, "<br>";*/
+        // Query para obtener el nombre del curso
+        $curso_nom = mysqli_query($con, "SELECT `nombre_curso` FROM `cursos` WHERE `nombre_curso` = '$nombre_curso'"); 
+        echo "Nombre del curso: ";
+        echo $nombre_curso;
+        print_r($curso_nom);
+        echo "<br>", "Valor ID PADRE: ", " ", $id_padre, "<br>";*/
 
-         $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
-         $cadena_curso_final = "INSERT INTO `capacitaciones`.`cursos` (`nombre_curso`, `horas_curso`, `id_ambito`, `codigo_sigper`, `vacantes`, `ubicacion`, `descripcion`, `id_relator`, `disponible`) VALUES ('".$nombre_curso."', '".$horas_curso."', '".$id_ambito."', '".$codigo_sigper."', '".$vacantes."', '".$ubicacion."', '".$descripcion."', '".$p_name."', 'si')";
-         $result1 = mysqli_query($con, $cadena_curso_final);
+        $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
+        $cadena_curso_final = "INSERT INTO `capacitaciones`.`cursos` (`nombre_curso`, `horas_curso`, `id_ambito`, `codigo_sigper`, `vacantes`, `ubicacion`, `descripcion`, `id_relator`, `disponible`) VALUES ('".$nombre_curso."', '".$horas_curso."', '".$id_ambito."', '".$codigo_sigper."', '".$vacantes."', '".$ubicacion."', '".$descripcion."', '".$p_name."', 'si')";
+        $result1 = mysqli_query($con, $cadena_curso_final);
 
-         $id_curso_padre = mysqli_query($con, "SELECT id_curso from cursos where nombre_curso = '$nombre_curso'");
+        //$id_curso_padre = mysqli_query($con, "SELECT id_curso from cursos where nombre_curso = '$nombre_curso'");
 
-         echo "<br>Resultado de variable fechas_curso: ";
-         print_r($fechas_curso);
-         echo "<br><br>";
-
-         foreach(($_POST["dform_date"]) as $key => $row) { 
-          $cadena_jornada_final = "INSERT INTO `capacitaciones`.`jornadas_curso` (`id_curso`, `fechas_curso`, `horario_curso`, `tipo_jornada`) VALUES ('".$id_curso_padre."', '".$row['fecha_curso']."', '".$row['horario_curso']."', '".$row['tipo_jornada']."')";
+        $id_curso_padre = mysqli_insert_id($con);
+        
+        if(!empty($arr_fechas) && $id_curso_padre){
+          foreach($arr_fechas as $key => $row) { 
+            $cadena_jornada_final = "INSERT INTO `capacitaciones`.`jornadas_curso` (`id_curso`, `fechas_curso`, `horario_curso`, `tipo_jornada`) VALUES ('".$id_curso_padre."', '".$row['fecha_curso']."', '".$row['horario_curso']."', '".$row['tipo_jornada']."');";
+            $result2 = mysqli_query($con, $cadena_jornada_final);
+          }
         }
 
       /*   for ($i = 0; $i <count($fechas_curso); $i++){

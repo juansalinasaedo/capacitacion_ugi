@@ -15,7 +15,7 @@
 	<form action='prueba_aprobacion_bd.php' method='post' enctype='multipart/form-data' name='form1' target='_self' id='form1'>
 							
 	<?php
-				  	$conex=mysqli_connect("localhost", "root", "","capacitaciones");
+				  	$conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
 				  	$conex->set_charset("utf8");
 					$result = mysqli_query($conex, "SELECT inscripciones.id_usuario, 
 						inscripciones.id_curso,
