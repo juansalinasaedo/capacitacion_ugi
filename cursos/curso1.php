@@ -14,48 +14,48 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 <!DOCTYPE HTML>
 <html>
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Inscripciones Capacitación Fiscalía</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
-	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-	<meta name="author" content="freehtml5.co" />
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Inscripciones Capacitación Fiscalía</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+  <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+  <meta name="author" content="freehtml5.co" />
 
   <link rel="shortcut icon" href="../images/favicon.ico" />
 
 
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+    <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content=""/>
+  <meta property="og:image" content=""/>
+  <meta property="og:url" content=""/>
+  <meta property="og:site_name" content=""/>
+  <meta property="og:description" content=""/>
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:card" content="" />
 
-	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="../css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="../css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="../css/bootstrap.css">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+  
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="../css/animate.css">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="../css/icomoon.css">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="../css/bootstrap.css">
 
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="../css/magnific-popup.css">
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" href="../css/magnific-popup.css">
 
-	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="../css/owl.carousel.min.css">
-	<link rel="stylesheet" href="../css/owl.theme.default.min.css">
+  <!-- Owl Carousel  -->
+  <link rel="stylesheet" href="../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="../css/style.css">
+  <!-- Theme style  -->
+  <link rel="stylesheet" href="../css/style.css">
 
   <!-- calendario -->
   <link href="calendario/calendario_dw-estilos.css" type="text/css" rel="STYLESHEET">
@@ -64,77 +64,77 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
   <!-- fin calendario -->
 
-	<!-- Modernizr JS -->
-	<script src="../js/modernizr-2.6.2.min.js"></script>
+  <!-- Modernizr JS -->
+  <script src="../js/modernizr-2.6.2.min.js"></script>
 
 
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
-	<script language="javascript">
+  <!-- FOR IE9 below -->
+  <!--[if lt IE 9]>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+  <script language="javascript">
 function checkFields() {
 
-	var email = /^(.+\@.+\..+)$/	        	//direccion de correo electronico
-	var nombre = /^([a-z]|[A-Z]|á|é|í|ó|ú|ñ|ü|\s|\.|-\')+$/			//letras, '.' y '-' o vacio
-	var dir = /^([a-z]|[A-Z]|[0-9\s\+\-\#\,\;\.])+$/	//numeros, espacios, + o -
-	var rut = /^([a-z]|[A-Z]|[0-9\s\+\-\.])+$/	//numeros, espacios, + o -
-	var x
+  var email = /^(.+\@.+\..+)$/            //direccion de correo electronico
+  var nombre = /^([a-z]|[A-Z]|á|é|í|ó|ú|ñ|ü|\s|\.|-\')+$/     //letras, '.' y '-' o vacio
+  var dir = /^([a-z]|[A-Z]|[0-9\s\+\-\#\,\;\.])+$/  //numeros, espacios, + o -
+  var rut = /^([a-z]|[A-Z]|[0-9\s\+\-\.])+$/  //numeros, espacios, + o -
+  var x
 
- 	//comprueba campo de nombre
-	if(!nombre.test(formulario.nombre.value)) { 
-		alert('Campo Nombre vacio')
-		return false
-	}   
+  //comprueba campo de nombre
+  if(!nombre.test(formulario.nombre.value)) { 
+    alert('Campo Nombre vacio')
+    return false
+  }   
 
-	if(!dir.test(formulario.dir.value)) { 
-		alert('Campo Dirección vacio')
-		return false
-	} 
-	
-	
-	//comprueba campo de rut
-	if(!rut.test(formulario.rut.value)) { 
-		alert('Rut no valido')
-		return false
-	}  
-	if (formulario.dv.rut_pass=='R'){
-		if (formulario.dv.value!=formulario.digito.value){
-			alert('Digito Verificador erroneo.')
-			return false
-		}	
-		
-		
-	}
-	
-	
-	if(formulario.participation.value=="Seleccione") { 
-		alert('Seleccione opción de Inscripción')
-		return false
-	} 	
-								   	
+  if(!dir.test(formulario.dir.value)) { 
+    alert('Campo Dirección vacio')
+    return false
+  } 
+  
+  
+  //comprueba campo de rut
+  if(!rut.test(formulario.rut.value)) { 
+    alert('Rut no valido')
+    return false
+  }  
+  if (formulario.dv.rut_pass=='R'){
+    if (formulario.dv.value!=formulario.digito.value){
+      alert('Digito Verificador erroneo.')
+      return false
+    } 
+    
+    
+  }
+  
+  
+  if(formulario.participation.value=="Seleccione") { 
+    alert('Seleccione opción de Inscripción')
+    return false
+  }   
+                    
 
-	//comprueba campo de email
-	if(!email.test(formulario.email.value)) { 
-		alert('Campo Email no valido')
-		return false
-	}  
-	
-	if(!email.test(formulario.re_email.value)) { 
-		alert('Campo Email no valido')
-		return false
-	} 	
-	
-	if (formulario.email.value!=formulario.re_email.value){
-		alert('Correos distintos')
-		return false
-	}
-			
+  //comprueba campo de email
+  if(!email.test(formulario.email.value)) { 
+    alert('Campo Email no valido')
+    return false
+  }  
+  
+  if(!email.test(formulario.re_email.value)) { 
+    alert('Campo Email no valido')
+    return false
+  }   
+  
+  if (formulario.email.value!=formulario.re_email.value){
+    alert('Correos distintos')
+    return false
+  }
+      
 
-	
+  
 
-/*	alert('Los campos introducidos son CORRECTOS.')*/
-	return true			//cambiar por return true para ejecutar la accion del formulario
+/*  alert('Los campos introducidos son CORRECTOS.')*/
+  return true     //cambiar por return true para ejecutar la accion del formulario
 }
 </script>
 
@@ -514,36 +514,36 @@ function preguntar(event) {
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-	</head>
-	<body>
-		
-	<div class="fh5co-loader"></div>
-	
-	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
-		<div class="top">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 text-right">
-					<!--	<p class="num">Call: +01 123 456 7890</p>
-						<ul class="fh5co-social">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							<li><a href="#"><i class="icon-github"></i></a></li>
-						</ul> -->
-					</div>
-				</div>
-			</div>
-		</div>
+  </head>
+  <body>
     
-		<div class="top-menu">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-1">
-						<div id="fh5co-logo"><a href="../bienvenido.php"><img src="../images/resources/logo_blanco.png" style="width: 220px; height: 180px"></a></div>
-					</div>
-					<div class="col-xs-11 text-right menu-1">
-						<ul>
+  <div class="fh5co-loader"></div>
+  
+  <div id="page">
+  <nav class="fh5co-nav" role="navigation">
+    <div class="top">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 text-right">
+          <!--  <p class="num">Call: +01 123 456 7890</p>
+            <ul class="fh5co-social">
+              <li><a href="#"><i class="icon-twitter"></i></a></li>
+              <li><a href="#"><i class="icon-dribbble"></i></a></li>
+              <li><a href="#"><i class="icon-github"></i></a></li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="top-menu">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-1">
+            <div id="fh5co-logo"><a href="../bienvenido.php"><img src="../images/resources/logo_blanco.png" style="width: 220px; height: 180px"></a></div>
+          </div>
+          <div class="col-xs-11 text-right menu-1">
+            <ul>
               <?php
                     $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
                     $con->set_charset("utf8");
@@ -564,10 +564,10 @@ function preguntar(event) {
 
                     mysqli_close($con);
                     ?>
-							<li><a href="../bienvenido.php">Home</a></li>
-					<!--		<li class="active"><a href="cursos/curso1.php">Cursos disponibles</a></li> -->
-						
-						<?php
+              <li><a href="../bienvenido.php">Home</a></li>
+          <!--    <li class="active"><a href="cursos/curso1.php">Cursos disponibles</a></li> -->
+            
+            <?php
                 $conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
               $result = mysqli_query($conex, "SELECT estamento FROM usuarios where estamento='rrhh' and id=$user_id");
                   if($result)
@@ -597,33 +597,33 @@ function preguntar(event) {
                  ";  }
               } ?>
 
-							<li><a href='../contacto.html'>Contacto</a></li>
+              <li><a href='../contacto.html'>Contacto</a></li>
               <li><a href="../login/php/logout.php">Salir</a></li>
-						<!--	<li class="btn-cta"><a href="#"><span>Login</span></a></li>
-							<li class="btn-cta"><a href="#"><span>Create a Course</span></a></li> -->
-						</ul>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-	</nav>
+            <!--  <li class="btn-cta"><a href="#"><span>Login</span></a></li>
+              <li class="btn-cta"><a href="#"><span>Create a Course</span></a></li> -->
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
 
-	<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(../images/curso1.jpg); margin-top: -50px;" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="display-t">
-						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<h1>INSCRIPCIONES</h1>
-						<!--	<h2>pharetra dolor dui lobortis nulla</a></h2> -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+  <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(../images/curso1.jpg); margin-top: -50px;" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <div class="display-t">
+            <div class="display-tc animate-box" data-animate-effect="fadeIn">
+              <h1>INSCRIPCIONES</h1>
+            <!--  <h2>pharetra dolor dui lobortis nulla</a></h2> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
 <?php
    function get_client_ip() {
@@ -647,29 +647,29 @@ function preguntar(event) {
 
     ?>
 
-	<div id="fh5co-contact">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-5 col-md-push-1 animate-box">
-					
-					<div class="fh5co-contact-info">
-						<h3>Contactenos</h3>
-						<ul>
-							<li class="address">Unidad de Recursos Humanos, <br> Fiscalía Regional del Maule</li>
-					<!--		<li class="phone"><a href="tel://712733323">71 2733323</a></li>
-							<li class="email"><a href="mailto:jfsalinas@minpublico.cl">jfsalinas@minpublico.cl</a></li> -->
-							<li class="url"><a href="http://172.17.107.250/v4/" target="_blank">Intranet Regional</a></li>
-						</ul>
-					</div>
+  <div id="fh5co-contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 col-md-push-1 animate-box">
+          
+          <div class="fh5co-contact-info">
+            <h3>Contactenos</h3>
+            <ul>
+              <li class="address">Unidad de Recursos Humanos, <br> Fiscalía Regional del Maule</li>
+          <!--    <li class="phone"><a href="tel://712733323">71 2733323</a></li>
+              <li class="email"><a href="mailto:jfsalinas@minpublico.cl">jfsalinas@minpublico.cl</a></li> -->
+              <li class="url"><a href="http://172.17.107.250/v4/" target="_blank">Intranet Regional</a></li>
+            </ul>
+          </div>
     
 
-				</div>
-				<div class="col-md-6 animate-box">
-					<h3>Complete los datos solicitados</h3>
-					<form action="envia_mail_2019.php" method="post" enctype="multipart/form-data" name="form1" target="_self" id="form1">
-						<div class="row form-group">
-						
-            	<div class="col-md-12">
+        </div>
+        <div class="col-md-6 animate-box">
+          <h3>Complete los datos solicitados</h3>
+          <form action="envia_mail_2019.php" method="post" enctype="multipart/form-data" name="form1" target="_self" id="form1">
+            <div class="row form-group">
+            
+              <div class="col-md-12">
 
                 <label for="fname">Nombre Inscrito: </label> 
 
@@ -694,12 +694,12 @@ function preguntar(event) {
 
               <input type="hidden" id="user_id" name="user_id" value="<?php echo $user_id; ?>">
  
-						</div> <br>
+            </div> <br>
 
             <input type="hidden" id="dir" name="ip" value="<?php echo $ip_usuario; ?>"> <!-- Podría ser <?=$ip?>, como fomra abreviada -->
 
-					<!-- email del inscrito -->
-          	
+          <!-- email del inscrito -->
+            
             <div class="row form-group">
               <div class="col-md-12">
                 <label for="fname" style="margin-left: 15px;">Email del inscrito: </label> 
@@ -721,7 +721,7 @@ function preguntar(event) {
             ?>
             <br>
             </div>
-						</div>
+            </div>
 
             <!-- fin email del inscrito -->
 
@@ -804,11 +804,12 @@ function preguntar(event) {
             <div class="col-md-12">
             <label for="fname" style="margin-left: 15px;">Fecha del curso: </label> 
 
-            <?php
+          <!--  <?php
                     $fechas_curso=$_POST["fechas_curso"];
+                    $id_curso=$_POST["id_curso"];
                     $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
                     $con->set_charset("utf8"); 
-                    $result = mysqli_query($conex, "SELECT fechas_curso FROM cursos where fechas_curso in ($fechas_curso)");
+                    $result = mysqli_query($conex, "SELECT fechas_curso FROM jornadas_curso where id_curso in ($id_curso)");
                     if($result)
                     {
                         while ($registro = mysqli_fetch_object($result))
@@ -817,7 +818,21 @@ function preguntar(event) {
                           echo $registro->fechas_curso.PHP_EOL;  
                       }
                     }
-            ?>
+            ?> -->
+               <select name="fechas_curso" id="fechas_curso" class="form-control" style="height: 50px" >
+                    <option value=''>Elija una fecha</option>
+                    <?php
+                        $fechas_curso=$_POST["fechas_curso"];
+                        $id_curso=$_POST["id_curso"];
+                        $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
+                        $con->set_charset("utf8"); 
+                        $query = $mysqli -> query ("SELECT fechas_curso FROM jornadas_curso where id_curso in ($id_curso)");
+                        while ($valores = mysqli_fetch_array($query)) {
+                          echo '<option value="'.$valores[fechas_curso].'">'.$valores[fechas_curso].'</option>';
+                        }
+                       ?>
+
+                  </select>
 
             </div>
             </div>   
@@ -861,9 +876,9 @@ function preguntar(event) {
             <label for="fname" style="margin-left: 15px;">Relatores del curso: </label> 
             <?php
                     $id_relator=$_POST["id_relator"];
-                    $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
-                    $con->set_charset("utf8"); 
-                    $result = mysqli_query($conex, "SELECT nombre_relator FROM relatores where id_relator in ($id_relator)");
+                    $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+                    $con->set_charset("utf8");
+                    $result = mysqli_query($con, "SELECT nombre_relator FROM relatores where id_relator in ($id_relator)");
                     if($result)
                     {
                         while ($registro = mysqli_fetch_object($result))
@@ -913,56 +928,56 @@ function preguntar(event) {
             <!-- fin descripcion del curso -->
 
 
-						<div class="row form-group">
-							<div class="col-md-12">
-								<!-- <label for="message">Message</label> -->
-								<textarea name="mensaje"  id="mensaje" cols="30" rows="10" class="form-control" placeholder="Mensaje"></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<input type="submit" name="enviar" onclick="preguntar(event)" value="Enviar inscripción" class="btn btn-primary" id="enviar">
-						</div>
+            <div class="row form-group">
+              <div class="col-md-12">
+                <!-- <label for="message">Message</label> -->
+                <textarea name="mensaje"  id="mensaje" cols="30" rows="10" class="form-control" placeholder="Mensaje"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="submit" name="enviar" onclick="preguntar(event)" value="Enviar inscripción" class="btn btn-primary" id="enviar">
+            </div>
 
-					</form>		
-				</div>
-			</div>
-			
-		</div>
-	</div>
-	
+          </form>   
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
 
-	</div>
+  </div>
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-	</div>
-	
-	<!-- jQuery -->
-	<script src="../js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="../js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="../js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="../js/jquery.waypoints.min.js"></script>
-	<!-- Stellar Parallax -->
-	<script src="../js/jquery.stellar.min.js"></script>
-	<!-- Carousel -->
-	<script src="../js/owl.carousel.min.js"></script>
-	<!-- countTo -->
-	<script src="../js/jquery.countTo.js"></script>
-	<!-- Magnific Popup -->
-	<script src="../js/jquery.magnific-popup.min.js"></script>
-	<script src="../js/magnific-popup-options.js"></script>
-	<!-- Google Map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-	<script src="../js/google_map.js"></script>
-	<!-- Main -->
-	<script src="../js/main.js"></script>
-
-
+  <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+  </div>
+  
+  <!-- jQuery -->
+  <script src="../js/jquery.min.js"></script>
+  <!-- jQuery Easing -->
+  <script src="../js/jquery.easing.1.3.js"></script>
+  <!-- Bootstrap -->
+  <script src="../js/bootstrap.min.js"></script>
+  <!-- Waypoints -->
+  <script src="../js/jquery.waypoints.min.js"></script>
+  <!-- Stellar Parallax -->
+  <script src="../js/jquery.stellar.min.js"></script>
+  <!-- Carousel -->
+  <script src="../js/owl.carousel.min.js"></script>
+  <!-- countTo -->
+  <script src="../js/jquery.countTo.js"></script>
+  <!-- Magnific Popup -->
+  <script src="../js/jquery.magnific-popup.min.js"></script>
+  <script src="../js/magnific-popup-options.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
+  <script src="../js/google_map.js"></script>
+  <!-- Main -->
+  <script src="../js/main.js"></script>
 
 
-	</body>
+
+
+  </body>
 </html>
 
