@@ -4,7 +4,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	print "<script>alert(\"Acceso invalido!\");window.location='index.php';</script>";
 }
   $user_id=$_SESSION["user_id"];
-  $mysqli = new mysqli('127.0.0.1', 'root', '', 'capacitaciones');
+  $mysqli = new mysqli('localhost', 'root', '', 'capacitaciones');
   mysqli_set_charset($mysqli,'utf8'); // para mostrar correctamente los acentos y las ñ 
 
 ?>
@@ -16,7 +16,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Inscripciones Capacitación Fiscalía</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="description" content="#" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="freehtml5.co" />
 
@@ -92,14 +92,17 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 					<div class="col-xs-11 text-right menu-1">
 						<ul>
 						<?php
-			              $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
+			              $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
 			              $con->set_charset("utf8");
-			                //   $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = alumno.id_alumno";
-			              $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = '$user_id'";
+			              $sql="SELECT usuarios.nombre, 
+			              usuarios.apellido,
+			              usuarios.estamento 
+			              from usuarios inner join alumno on usuarios.id = '$user_id'";
 			              if ( $alumno=mysqli_query($con, $sql) ) {
 			                  while ($obj = mysqli_fetch_object($alumno)) {
 			                      echo "<li class='active'>",$obj->nombre.PHP_EOL,"</li>";
 			                      echo $obj->apellido.PHP_EOL;
+			                   //   echo $obj->estamento.PHP_EOL;
 			                  }
 			                  /* liberar el conjunto de resultados */
 			                  mysqli_free_result($alumno);
@@ -111,9 +114,9 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
           				  ?>
 							<li class="active"><a href="#">Home</a></li>
 				
-				
+
 						<?php
-						  	$conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
+						  	$conex=mysqli_connect("localhost", "root", "","capacitaciones");
 							$result = mysqli_query($conex, "SELECT estamento FROM usuarios where estamento='rrhh' and id=$user_id");
 						      if($result)
 						      {
@@ -136,7 +139,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 								<a href='#''>Informes</a>
 								<ul class='dropdown'>
 									<li><a href='php/informe_inscritos_cursos.php'>Inscritos a cursos</a></li>
-									<li><a href='#''>Encuesta de los inscritos</a></li>
+									<li><a href='php/informe_encuesta_cursos.php''>Encuesta de los inscritos</a></li>
 								</ul>
 							</li>
 								 "; 
@@ -258,29 +261,44 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	$imagenes[4]='images/cursos/cursoX5.jpg'; 
 	$imagenes[5]='images/cursos/cursoX6.jpg'; 
 	$imagenes[6]='images/cursos/cursoX7.jpg';  	
-  	$conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
+  	$conex=mysqli_connect("localhost", "root", "","capacitaciones");
   	$utf8=mysqli_query($conex, "SET NAMES 'utf8'");
-	$result = mysqli_query($conex, "SELECT nombre_curso, id_curso, fechas_curso, horario_curso, tipo_jornada, id_relator, descripcion, ubicacion from cursos where disponible='si' and vacantes >0 and fechas_curso > NOW() order by fechas_curso DESC");
+	$result = mysqli_query($conex, "SELECT 
+					cursos.nombre_curso, cursos.id_curso, 
+					DATE_FORMAT( jornadas_curso.fechas_curso, '%d/%m/%y' ) AS Fechas_Cursos, 
+					jornadas_curso.horario_curso, 
+					jornadas_curso.tipo_jornada, 
+					cursos.id_relator, 
+					cursos.descripcion, 
+					cursos.vacantes, 
+					cursos.ubicacion
+					FROM cursos
+					INNER JOIN jornadas_curso ON jornadas_curso.id_curso = cursos.id_curso
+					AND disponible = 'si'
+					AND vacantes >0
+					AND fechas_curso > NOW( ) 
+					GROUP BY nombre_curso
+					ORDER BY fechas_curso DESC");
       if($result)
       {
           while ($registro = mysqli_fetch_object($result)){  
           $i=rand(0,6);		
 			echo"
-		
 			<div class='container-fluid proj-bottom'>
 			<div class='row'>
 				<div class='col-md-8 col-sm-6 fh5co-project animate-box' data-animate-effect='fadeIn' style='margin-left: 300px'>
 				
 					<a href='#'><img src='$imagenes[$i]' alt='' class='img-responsive'>
 						<h3><b>CURSO DISPONIBLE - $registro->nombre_curso</b></h3>
-						<h4><b>Fecha de realización:</b> $registro->fechas_curso</h4>
+						<h4><b>Fecha de realización:</b> $registro->Fechas_Cursos --
+						<b>Jornada:</b> $registro->tipo_jornada</h4>
 					</a>
 					<form action='cursos/curso1.php' method='post' enctype='multipart/form-data' name='form_curso' target='_self' id='form_curso'>
 					<input type='hidden' name='id_curso' id='id_curso' value='$registro->id_curso'>
 					<input type='hidden' name='id_relator' id='id_relator' value='$registro->id_relator'>
 					<input type='hidden' name='descripcion' id='descripcion' value='$registro->descripcion'>
 					<input type='hidden' name='ubicacion' id='ubicacion' value='$registro->ubicacion'>
-					<input type='hidden' name='fechas_curso' id='fechas_curso' value='$registro->fechas_curso'>
+					<input type='hidden' name='fechas_curso' id='fechas_curso' value='$registro->Fechas_Cursos'>
 					<input type='hidden' name='horario_curso' id='horario_curso' value='$registro->horario_curso'>
 					<input type='hidden' name='tipo_jornada' id='tipo_jornada' value='$registro->tipo_jornada'>
 					<input name='nombre_curso' class='btn btn-default btn-lg' type='submit' value='$registro->nombre_curso' id='nombre_curso' /> 
@@ -298,7 +316,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	<!--Codigo para div de inscripción de cursos (si es que el estamento del usuario es rrhh) -->		
 
   	<?php
-  	$conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
+  	$conex=mysqli_connect("localhost", "root", "","capacitaciones");
 	$result = mysqli_query($conex, "SELECT estamento FROM usuarios where estamento='rrhh' and id=$user_id");
       if($result)
       {
@@ -309,7 +327,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 			<div class='row animate-box'>
 				<div class='col-md-8 col-md-offset-2 text-center fh5co-heading'>
 					<h2>Inscripción de cursos</h2>
-					<p>Si usted desea inscribir un curso a la capacitaciones, favor ingresar aquí</p>
+					<p>Si usted desea agregar un curso a la capacitaciones de la Fiscalía Regional, favor ingresar aquí</p>
 				</div>
 			</div>
 			<div class='row animate-box'>
@@ -341,7 +359,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 								<li><i class="icon-check2"></i>Ambito 2</li>
 								<li><i class="icon-check2"></i>Ambito 2</li>
 							</ul> -->
-							<p><a class="btn btn-primary btn-lg  btn-video" href="encuestas/encuesta_satisfaccion.php"><i class="icon-play"></i> Realizar encuesta</a></p>
+							<p><a class="btn btn-primary btn-lg  btn-video" href="encuestas/encuesta_curso.php" target="_blank"><i class="icon-play"></i> Realizar encuesta</a></p>
 						</div>
 					</div>
 				</div>
@@ -353,7 +371,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
   <!-- informe de inscritos en cursos -->
 
   	<?php
-  	$conex=mysqli_connect("127.0.0.1", "root", "","capacitaciones");
+  	$conex=mysqli_connect("localhost", "root", "","capacitaciones");
 	$result = mysqli_query($conex, "SELECT estamento FROM usuarios where estamento='rrhh' and id=$user_id");
       if($result)
       {
