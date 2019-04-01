@@ -876,7 +876,7 @@ function preguntar(event) {
             <label for="fname" style="margin-left: 15px;">Relatores del curso: </label> 
             <?php
                     $id_relator=$_POST["id_relator"];
-                    $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+                    $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
                     $con->set_charset("utf8");
                     $result = mysqli_query($con, "SELECT nombre_relator FROM relatores where id_relator in ($id_relator)");
                     if($result)

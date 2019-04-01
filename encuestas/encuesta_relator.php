@@ -5,7 +5,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 }
         
   $user_id=$_SESSION["user_id"];
-  $mysqli = new mysqli('localhost', 'root', '', 'capacitaciones');
+  $mysqli = new mysqli('127.0.0.1', 'root', '', 'capacitaciones');
   mysqli_set_charset($mysqli,'utf8'); // para mostrar correctamente los acentos y las ñ 
 ?>
 
@@ -54,7 +54,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	<!-- Modernizr -->
 
 
-	<script src="js/script_llenado.js"></script>
+	
 
 </head>
 
@@ -230,68 +230,67 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 						INNER JOIN relacion_curso_relator ON relacion_curso_relator.id_relator = relatores.id_relator
                         and relacion_curso_relator.id_curso = '$id_curso'");
 						
-						while ($valores = mysqli_fetch_array($sql))  {
-						 echo '
-						 
-								<div class="step">              
-									<h3 class="main_question">Sobre la calidad del relator '.$valores['nombre_relator'].'</h3>
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group clearfix">
-												<label class="rating_type">El relator demuestra dominio del tema, argumentando con evidencia y respondiendo preguntas.</label>
-												<span class="rating">
-												<input type="radio" class="required rating-input" id="rating-input-17-5" name="preguntas[id_relator][pregunta17]" value="5 Estrellas"><label for="rating-input-17-5" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-17-4" name="preguntas[id_relator][pregunta17]" value="4 Estrellas"><label for="rating-input-17-4" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-17-3" name="preguntas[id_relator][pregunta17]" value="3 Estrellas"><label for="rating-input-17-3" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-17-2" name="preguntas[id_relator][pregunta17]" value="2 Estrellas"><label for="rating-input-17-2" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-17-1" name="preguntas[id_relator][pregunta17]" value="1 Estrellas"><label for="rating-input-17-1" class="rating-star"></label>
-												</span>
-											</div>
-											<div class="form-group clearfix">
-												<label class="rating_type">Demuestra habilidades de comunicación, explicando con claridad y ayudando a comprender.</label>
-												<span class="rating">
-												<input type="radio" class="required rating-input" id="rating-input-18-5" name="pregunta18" value="5 Estrellas"><label for="rating-input-18-5" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-18-4" name="pregunta18" value="4 Estrellas"><label for="rating-input-18-4" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-18-3" name="pregunta18" value="3 Estrellas"><label for="rating-input-18-3" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-18-2" name="pregunta18" value="2 Estrellas"><label for="rating-input-18-2" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-18-1" name="pregunta18" value="1 Estrellas"><label for="rating-input-18-1" class="rating-star"></label>
-												</span>
-											</div>
-											<div class="form-group clearfix">
-												<label class="rating_type">Estimula la participación, generando un ambiente cálido y motivante.</label>
-												<span class="rating">
-												<input type="radio" class="required rating-input" id="rating-input-19-5" name="pregunta19" value="5 Estrellas"><label for="rating-input-19-5" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-19-4" name="pregunta19" value="4 Estrellas"><label for="rating-input-19-4" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-19-3" name="pregunta19" value="3 Estrellas"><label for="rating-input-19-3" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-19-2" name="pregunta19" value="2 Estrellas"><label for="rating-input-19-2" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-19-1" name="pregunta19" value="1 Estrellas"><label for="rating-input-19-1" class="rating-star"></label>
-												</span>
-											</div>
+					?>
 
-												<div class="form-group clearfix">
-												<label class="rating_type">Demuestra cómo aplicar los contenidos al puesto de trabajo.</label>
-												<span class="rating">
-												<input type="radio" class="required rating-input" id="rating-input-20-5" name="pregunta20" value="5 Estrellas"><label for="rating-input-20-5" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-20-4" name="pregunta20" value="4 Estrellas"><label for="rating-input-20-4" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-20-3" name="pregunta20" value="3 Estrellas"><label for="rating-input-20-3" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-20-2" name="pregunta20" value="2 Estrellas"><label for="rating-input-20-2" class="rating-star"></label>
-												<input type="radio" class="required rating-input" id="rating-input-20-1" name="pregunta20" value="1 Estrellas"><label for="rating-input-20-1" class="rating-star"></label>
-												</span>
-											</div>
-
-											
-											<br>
-											
+					<?php while ($valores = mysqli_fetch_array($sql)):?>
+						<div class="step">      
+								<h3 class="main_question">Sobre la calidad del relator <?php echo $valores['nombre_relator']?></h3>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group clearfix">
+											<label class="rating_type">El relator demuestra dominio del tema, argumentando con evidencia y respondiendo preguntas.</label>
+											<span class="rating">
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-17-5" name="preguntas[<?php echo $valores['id_relator']?>][pregunta17]" value="5 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-17-5" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-17-4" name="preguntas[<?php echo $valores['id_relator']?>][pregunta17]" value="4 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-17-4" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-17-3" name="preguntas[<?php echo $valores['id_relator']?>][pregunta17]" value="3 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-17-3" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-17-2" name="preguntas[<?php echo $valores['id_relator']?>][pregunta17]" value="2 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-17-2" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-17-1" name="preguntas[<?php echo $valores['id_relator']?>][pregunta17]" value="1 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-17-1" class="rating-star"></label>
+											</span>
 										</div>
-									</div>
-									<!-- /row -->
-								</div>
+										<div class="form-group clearfix">
+											<label class="rating_type">Demuestra habilidades de comunicación, explicando con claridad y ayudando a comprender.</label>
+											<span class="rating">
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-18-5" name="preguntas[<?php echo $valores['id_relator']?>][pregunta18]" value="5 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-18-5" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-18-4" name="preguntas[<?php echo $valores['id_relator']?>][pregunta18]" value="4 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-18-4" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-18-3" name="preguntas[<?php echo $valores['id_relator']?>][pregunta18]" value="3 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-18-3" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-18-2" name="preguntas[<?php echo $valores['id_relator']?>][pregunta18]" value="2 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-18-2" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-18-1" name="preguntas[<?php echo $valores['id_relator']?>][pregunta18]" value="1 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-18-1" class="rating-star"></label>
+											</span>
+										</div>
+										<div class="form-group clearfix">
+											<label class="rating_type">Estimula la participación, generando un ambiente cálido y motivante.</label>
+											<span class="rating">
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-19-5" name="preguntas[<?php echo $valores['id_relator']?>][pregunta19]" value="5 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-19-5" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-19-4" name="preguntas[<?php echo $valores['id_relator']?>][pregunta19]" value="4 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-19-4" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-19-3" name="preguntas[<?php echo $valores['id_relator']?>][pregunta19]" value="3 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-19-3" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-19-2" name="preguntas[<?php echo $valores['id_relator']?>][pregunta19]" value="2 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-19-2" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-19-1" name="preguntas[<?php echo $valores['id_relator']?>][pregunta19]" value="1 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-19-1" class="rating-star"></label>
+											</span>
+										</div>
 
-						 ';
-                       
-						}															          	
-					?>  			                     
-					
+											<div class="form-group clearfix">
+											<label class="rating_type">Demuestra cómo aplicar los contenidos al puesto de trabajo.</label>
+											<span class="rating">
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-20-5" name="preguntas[<?php echo $valores['id_relator']?>][pregunta20]" value="5 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-20-5" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-20-4" name="preguntas[<?php echo $valores['id_relator']?>][pregunta20]" value="4 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-20-4" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-20-3" name="preguntas[<?php echo $valores['id_relator']?>][pregunta20]" value="3 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-20-3" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-20-2" name="preguntas[<?php echo $valores['id_relator']?>][pregunta20]" value="2 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-20-2" class="rating-star"></label>
+											<input type="radio" class="required rating-input" id="rating-<?php echo $valores['id_relator']?>-input-20-1" name="preguntas[<?php echo $valores['id_relator']?>][pregunta20]" value="1 Estrellas"><label for="rating-<?php echo $valores['id_relator']?>-input-20-1" class="rating-star"></label>
+											</span>
+										</div>
+
+									
+										<br>
+										
+									</div>
+								</div>
+								<!-- /row -->
+							</div>
+    
+						<?php endwhile; ?>			                     
+					<!--//-->
+
+
 								<!-- /step -->			          
 								
 								<!-- fin preguntas 17 al 20 -->
@@ -417,6 +416,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	<!-- Theme script -->
 	<script src="js/functions.js"></script>
 	
+	<script src="js/script_llenado.js"></script>
 
 </body>
 </html>

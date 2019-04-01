@@ -4,7 +4,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
   print "<script>alert(\"Acceso invalido!\");window.location='../index.php';</script>";
 }
         
-  $mysqli = new mysqli('localhost', 'root', '', 'capacitaciones');
+  $mysqli = new mysqli('127.0.0.1', 'root', '', 'capacitaciones');
   mysqli_set_charset($mysqli,'utf8'); // para mostrar correctamente los acentos y las ñ 
 ?>
 

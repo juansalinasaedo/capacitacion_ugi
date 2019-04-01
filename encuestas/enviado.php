@@ -79,7 +79,7 @@
 								$comentarios=$_POST["mensaje"];
 
 
-								$con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+								$con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 							/*	$nombre_curso=("SELECT `nombre_curso` FROM `capacitaciones`.`cursos` WHERE `id_curso`='$id_curso'");
 								$curso=mysqli_query($con, $nombre_curso);   */
 

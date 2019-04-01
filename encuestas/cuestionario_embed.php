@@ -5,7 +5,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 }
         
   $user_id=$_SESSION["user_id"];
-  $mysqli = new mysqli('localhost', 'root', '', 'capacitaciones');
+  $mysqli = new mysqli('127.0.0.1', 'root', '', 'capacitaciones');
   mysqli_set_charset($mysqli,'utf8'); // para mostrar correctamente los acentos y las ñ 
 ?>
 
@@ -138,7 +138,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 											<div class="form-group">
 										<label><b>Nombre:</b></label><br>		
 											 <?php
-								              $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+								              $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 								              $con->set_charset("utf8");
 								              $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = '$user_id'";
 								              if ( $alumno=mysqli_query($con, $sql) ) {
@@ -163,7 +163,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 											<div class="form-group">
 											  <label><b>Apellido:</b></label><br>		
 											 <?php
-								              $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+								              $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 								              $con->set_charset("utf8");
 								              $sql="SELECT usuarios.nombre, usuarios.apellido from usuarios inner join alumno on usuarios.id = '$user_id'";
 								              if ( $alumno=mysqli_query($con, $sql) ) {
@@ -191,7 +191,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 											<div class="form-group">
 											  <label><b>Mail:</b></label><br>		
 											 <?php
-								              $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+								              $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 								              $con->set_charset("utf8");
 								              $sql="SELECT usuarios.nombre, usuarios.apellido, usuarios.email from usuarios inner join alumno on usuarios.id = '$user_id'";
 								              if ( $alumno=mysqli_query($con, $sql) ) {
@@ -247,7 +247,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 											<div class="form-group clearfix">
 												<label class="rating_type">
 													 <?php
-													   $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+													   $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 													   $con->set_charset("utf8"); 
 													   $sql="SELECT nombre_pregunta from preguntas_curso where id_pregunta='1'";
 													   if ( $alumno=mysqli_query($con, $sql) ) {
@@ -273,7 +273,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 											<div class="form-group clearfix">
 												<label class="rating_type">
 													 <?php
-													   $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+													   $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 													   $con->set_charset("utf8"); 
 													   $sql="SELECT nombre_pregunta from preguntas_curso where id_pregunta='2'";
 													   if ( $alumno=mysqli_query($con, $sql) ) {
@@ -314,7 +314,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 											<div class="form-group clearfix">
 												<label class="rating_type">
 													<?php
-													   $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+													   $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 													   $con->set_charset("utf8"); 
 													   $sql="SELECT nombre_pregunta from preguntas_curso where id_pregunta='3'";
 													   if ( $alumno=mysqli_query($con, $sql) ) {
@@ -340,7 +340,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 											<div class="form-group clearfix">
 												<label class="rating_type">
 													<?php
-													   $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+													   $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 													   $con->set_charset("utf8"); 
 													   $sql="SELECT nombre_pregunta from preguntas_curso where id_pregunta='4'";
 													   if ( $alumno=mysqli_query($con, $sql) ) {
@@ -365,7 +365,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 											</div>
 											<div class="form-group clearfix">
 												<label class="rating_type"><?php
-													   $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+													   $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 													   $con->set_charset("utf8"); 
 													   $sql="SELECT nombre_pregunta from preguntas_curso where id_pregunta='5'";
 													   if ( $alumno=mysqli_query($con, $sql) ) {
@@ -390,7 +390,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 												<div class="form-group clearfix">
 												<label class="rating_type"><?php
-													   $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+													   $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 													   $con->set_charset("utf8"); 
 													   $sql="SELECT nombre_pregunta from preguntas_curso where id_pregunta='6'";
 													   if ( $alumno=mysqli_query($con, $sql) ) {
@@ -415,7 +415,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 											<div class="form-group clearfix">
 												<label class="rating_type"><?php
-													   $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+													   $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 													   $con->set_charset("utf8"); 
 													   $sql="SELECT nombre_pregunta from preguntas_curso where id_pregunta='7'";
 													   if ( $alumno=mysqli_query($con, $sql) ) {
@@ -456,7 +456,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 										<div class="col-md-12">
 											<div class="form-group clearfix">
 												<label class="rating_type"><?php
-													   $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+													   $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 													   $con->set_charset("utf8"); 
 													   $sql="SELECT nombre_pregunta from preguntas_curso where id_pregunta='8'";
 													   if ( $alumno=mysqli_query($con, $sql) ) {
@@ -480,7 +480,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 											</div>
 											<div class="form-group clearfix">
 												<label class="rating_type"><?php
-													   $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+													   $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 													   $con->set_charset("utf8"); 
 													   $sql="SELECT nombre_pregunta from preguntas_curso where id_pregunta='9'";
 													   if ( $alumno=mysqli_query($con, $sql) ) {
@@ -520,7 +520,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 										<div class="col-md-12">
 											<div class="form-group clearfix">
 												<label class="rating_type"><?php
-													   $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+													   $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 													   $con->set_charset("utf8"); 
 													   $sql="SELECT nombre_pregunta from preguntas_curso where id_pregunta='10'";
 													   if ( $alumno=mysqli_query($con, $sql) ) {
@@ -544,7 +544,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 											</div>
 											<div class="form-group clearfix">
 												<label class="rating_type"><?php
-													   $con=mysqli_connect('localhost', 'root', '', 'capacitaciones');
+													   $con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 													   $con->set_charset("utf8"); 
 													   $sql="SELECT nombre_pregunta from preguntas_curso where id_pregunta='11'";
 													   if ( $alumno=mysqli_query($con, $sql) ) {
