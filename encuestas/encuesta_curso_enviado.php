@@ -77,19 +77,31 @@
 								$con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 							/*	$nombre_curso=("SELECT `nombre_curso` FROM `capacitaciones`.`cursos` WHERE `id_curso`='$id_curso'");
 								$curso=mysqli_query($con, $nombre_curso);   */
-								print_r($preguntas);
-
+								
 								//recibes el valor del formulario (preguntas)
-								$arr_preguntas= (isset($_POST["relatores_form"]))?$_POST["relatores_form"]["relatores_form"]:null;
-							    //creas un array simple (preguntas)
-							    $arr_pre = array();
-							    foreach ($arr_preguntas as $key_pre => $row_pre) $arr_pre[$key_pre] = $row_pre['preguntas'];
-							    //parseas el array para imprimirlo como texto.(preguntas)
-							    $preguntas_relatores = implode(', ', $arr_pre);
+								$arr_preguntas= (isset($_POST["preguntas"]))?$_POST["preguntas"]:null;
+								
+								//creas un array simple (preguntas)
+								$arr_pre = array();
 
-						/* para ver que devuelve el formulario */ echo '<b>Nombre: </b>',$nombre,' ', $apellido,'<br>','<b>Email: </b>', $email,'<br>','<b>La información previa sobre sala, horarios y objetivos fue clara y oportuna: </b>',$pregunta1,'<br>',$pregunta2,'<br>',$pregunta3,'<br>',$pregunta4,'<br>',$pregunta5,'<br>',$pregunta6,'<br>',$pregunta7,'<br>',$pregunta8,'<br>',$pregunta9,'<br>',$pregunta10,'<br>',$pregunta11,'<br>',$pregunta12,'<br>',$pregunta13,'<br>',$pregunta14,'<br>',$pregunta15,'<br>',$pregunta16,'<br>','<b>Nombre del curso: </b>',$id_curso,'<br>','<b>Comentarios u Observaciones: </b>', $comentarios;
+								$preguntas_relatores = '<br><br><b>Resultado del array: </b>';
+								foreach ($arr_preguntas as $key_pre => $row_pre){
 
-					    echo '<b>Resultado del array: </b>', $preguntas_relatores;	
+									$preguntas_relatores .= '<h3>Id relator '.$key_pre.'<h3>';
+									$preguntas_relatores .= '<ul>';
+									foreach ($row_pre as $pregunta => $valor_de_pregunta) {
+										$preguntas_relatores .= '<li>'.$pregunta.': '.$valor_de_pregunta.'</li>';
+									}
+									$preguntas_relatores .= '</ul>';
+								}
+								
+								//parseas el array para imprimirlo como texto.(preguntas)
+								
+						/* para ver que devuelve el formulario */ 
+						
+						echo '<b>Nombre: </b>',$nombre,' ', $apellido,'<br>','<b>Email: </b>', $email,'<br>','<b>La información previa sobre sala, horarios y objetivos fue clara y oportuna: </b>',$pregunta1,'<br>',$pregunta2,'<br>',$pregunta3,'<br>',$pregunta4,'<br>',$pregunta5,'<br>',$pregunta6,'<br>',$pregunta7,'<br>',$pregunta8,'<br>',$pregunta9,'<br>',$pregunta10,'<br>',$pregunta11,'<br>',$pregunta12,'<br>',$pregunta13,'<br>',$pregunta14,'<br>',$pregunta15,'<br>',$pregunta16,'<br>','<b>Nombre del curso: </b>',$id_curso,'<br>','<b>Comentarios u Observaciones: </b>', $comentarios;
+
+					  echo $preguntas_relatores;	
 
 						echo "<input type='hidden' name='id_curso' id='id_curso' value='$id_curso'>";
 
