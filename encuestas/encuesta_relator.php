@@ -7,6 +7,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
   $user_id=$_SESSION["user_id"];
   $mysqli = new mysqli('127.0.0.1', 'root', '', 'capacitaciones');
   mysqli_set_charset($mysqli,'utf8'); // para mostrar correctamente los acentos y las ñ 
+  // para validar usuario
 ?>
 
 <!DOCTYPE html>
