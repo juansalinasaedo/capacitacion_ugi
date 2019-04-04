@@ -109,6 +109,8 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 	<main>
 
+<form name="example-1" id="wrapped" method="POST">
+	
 <?php
 	$nombre=$_POST["nombre"];
 	$apellido=$_POST["apellido"];
@@ -136,7 +138,9 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	$pregunta16=$_POST["pregunta16"];
 	$comentarios=$_POST["mensaje"];	
 
-	echo "<input type='hidden' name='nombre' id='nombre' value='$nombre'>
+	echo "
+	<input type='hidden' name='id_usuario' id='id_usuario' value='$user_id'>
+	<input type='hidden' name='nombre' id='nombre' value='$nombre'>
 	<input type='hidden' name='apellido' id='apellido' value='$apellido'>
 	<input type='hidden' name='email' id='email' value='$email'>
 	<input type='hidden' name='id_curso' id='id_curso' value='$id_curso'>
@@ -202,7 +206,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 							<div id="progressbar"></div>
 						</div>
 						<!-- /top-wizard -->
-						<form name="example-1" id="wrapped" method="POST">
+						
 							<input id="website" name="website" type="text" value="">
 							<!-- Leave for security protection, read docs for details -->
 							<div id="middle-wizard">
@@ -233,7 +237,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 					?>
 
 					<?php while ($valores = mysqli_fetch_array($sql)):?>
-						<div class="step">      
+						<div class="step" id="relatores_form">      
 								<h3 class="main_question">Sobre la calidad del relator <?php echo $valores['nombre_relator']?></h3>
 								<div class="row">
 									<div class="col-md-12">
@@ -279,7 +283,14 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 											</span>
 										</div>
 
-									
+											<div class="form-group clearfix">
+											<label class="rating_type">Comentarios u observaciones</label><br><br>
+											<div class="form-group">
+												<textarea id="rating-<?php echo $valores['id_relator']?>-mensaje"  name="mensaje" name="mensaje[<?php echo $valores['id_relator']?>][mensaje]" style="height:180px;" placeholder="Escriba sus fundamentos aqui"></textarea><br><br><br>
+											</div>
+											
+										</div>
+
 										<br>
 										
 									</div>
@@ -299,19 +310,18 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 								<!-- Comentarios u observaciones -->
 								<div class="submit step">
-									<h3 class="main_question">Comentarios u observaciones</h3>
+									<h3 class="main_question">¿Esta seguro de querer enviar la encuesta?</h3>
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group">
-												<textarea id="mensaje" name="mensaje" class="icheck required" style="height:250px;" placeholder="Escriba sus fundamentos aqui"></textarea><br><br><br>
+											<!--	<textarea id="mensaje" name="mensaje" style="height:250px;" placeholder="Escriba sus fundamentos aqui"></textarea><br><br><br> -->
 											</div>
 										</div>
 										
 									</div>
 									<!-- /row -->
 
-									
-									<br>
+								
 									
 								<!--	<div class="row">
 										<div class="col-md-12">
@@ -409,7 +419,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	<!-- Common script -->
 	<script src="js/common_scripts.js"></script>
 	<!-- Wizard script -->
-	<script src="js/questionare_wizard_func.js"></script>
+	<script src="js/questionare_wizard_func2.js"></script>
 	<!-- Menu script -->
 	 <script src="js/velocity.min.js"></script>
 	<script src="js/main.js"></script> 

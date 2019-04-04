@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="MAVIA - Register, Reservation, Questionare, Reviews form wizard">
+	<meta name="description" content="MAVIA - Register, Reservation, Questionare, Reviews form wizard">	
 	<meta name="author" content="Ansonika">
 	<title>Inscripciones Capacitación Fiscalía</title>
 
@@ -38,16 +38,17 @@
 
 </head>
 <!--<body onLoad="setTimeout('delayedRedirect()', 8000)" style="background-color:#fff;"> -->
-<?php
 
+<?php
 						include ('conecta.php');
 
 						/* Entrada de datos a BD  */
 
+								$id_usuario=$_POST["id_usuario"];
 								$nombre=$_POST["nombre"];
 								$apellido=$_POST["apellido"];
 								$email=$_POST["email"];
-								$id_curso=$_POST["curso"];
+								$id_curso=$_POST["id_curso"];
 						 		$pregunta1=$_POST["pregunta1"];
 						 		$pregunta2=$_POST["pregunta2"];
 						 		$pregunta3=$_POST["pregunta3"];
@@ -59,20 +60,14 @@
 						 		$pregunta9=$_POST["pregunta9"];
 						 		$pregunta10=$_POST["pregunta10"];
 						 		$pregunta11=$_POST["pregunta11"];
-
-						 		$pregunta12_1=$_POST["pregunta12_1"];
-						 		$pregunta12_2=$_POST["pregunta12_2"];
-						 		$pregunta12=$pregunta12_1.$pregunta12_2;
-
-						 		$pregunta13_1=$_POST["pregunta13_1"];
-						 		$pregunta13_2=$_POST["pregunta13_2"];
-						 		$pregunta13=$pregunta13_1.$pregunta13_2;
+						 		$pregunta12=$_POST["pregunta12"];
+						 		$pregunta13=$_POST["pregunta13"];
 
 						 		$pregunta14=$_POST["pregunta14"];
 						 		$pregunta15=$_POST["pregunta15"];
 						 		$pregunta16=$_POST["pregunta16"];
-						 	/*	$pregunta17=$_POST["pregunta17"];
-						 		$pregunta18=$_POST["pregunta18"];
+						 		$preguntas=$_POST["preguntas"];
+						 	/*	$pregunta18=$_POST["pregunta18"];
 						 		$pregunta19=$_POST["pregunta19"];
 						 		$pregunta20=$_POST["pregunta20"]; */
 
@@ -82,13 +77,24 @@
 								$con=mysqli_connect('127.0.0.1', 'root', '', 'capacitaciones');
 							/*	$nombre_curso=("SELECT `nombre_curso` FROM `capacitaciones`.`cursos` WHERE `id_curso`='$id_curso'");
 								$curso=mysqli_query($con, $nombre_curso);   */
+								print_r($preguntas);
+
+								//recibes el valor del formulario (preguntas)
+								$arr_preguntas= (isset($_POST["relatores_form"]))?$_POST["relatores_form"]["relatores_form"]:null;
+							    //creas un array simple (preguntas)
+							    $arr_pre = array();
+							    foreach ($arr_preguntas as $key_pre => $row_pre) $arr_pre[$key_pre] = $row_pre['preguntas'];
+							    //parseas el array para imprimirlo como texto.(preguntas)
+							    $preguntas_relatores = implode(', ', $arr_pre);
 
 						/* para ver que devuelve el formulario */ echo '<b>Nombre: </b>',$nombre,' ', $apellido,'<br>','<b>Email: </b>', $email,'<br>','<b>La información previa sobre sala, horarios y objetivos fue clara y oportuna: </b>',$pregunta1,'<br>',$pregunta2,'<br>',$pregunta3,'<br>',$pregunta4,'<br>',$pregunta5,'<br>',$pregunta6,'<br>',$pregunta7,'<br>',$pregunta8,'<br>',$pregunta9,'<br>',$pregunta10,'<br>',$pregunta11,'<br>',$pregunta12,'<br>',$pregunta13,'<br>',$pregunta14,'<br>',$pregunta15,'<br>',$pregunta16,'<br>','<b>Nombre del curso: </b>',$id_curso,'<br>','<b>Comentarios u Observaciones: </b>', $comentarios;
+
+					    echo '<b>Resultado del array: </b>', $preguntas_relatores;	
 
 						echo "<input type='hidden' name='id_curso' id='id_curso' value='$id_curso'>";
 
 
-						 $sql = ("INSERT INTO `capacitaciones`.`encuesta_curso` (`nombre_alumno`, `apellido_alumno`, `email_alumno`, `id_curso`, `fecha_evaluacion`, `pregunta1`, `pregunta2`, `pregunta3`, `pregunta4`, `pregunta5`, `pregunta6`, `pregunta7`, `pregunta8`, `pregunta9`, `pregunta10`, `pregunta11`, `pregunta12`, `pregunta13`, `pregunta14`, `pregunta15`, `pregunta16`, `comentarios`) VALUES ('$nombre', '$apellido', '$email', '$id_curso', NOW(), '$pregunta1', '$pregunta2', '$pregunta3', '$pregunta4', '$pregunta5', '$pregunta6', '$pregunta7', '$pregunta8', '$pregunta9', '$pregunta10', '$pregunta11', '$pregunta12', '$pregunta13', '$pregunta14', '$pregunta15', '$pregunta16', '$comentarios')"); 
+						 $sql = ("INSERT INTO `capacitaciones`.`encuesta_curso` (`id_usuario`, `nombre_alumno`, `apellido_alumno`, `email_alumno`, `id_curso`, `fecha_evaluacion`, `pregunta1`, `pregunta2`, `pregunta3`, `pregunta4`, `pregunta5`, `pregunta6`, `pregunta7`, `pregunta8`, `pregunta9`, `pregunta10`, `pregunta11`, `pregunta12`, `pregunta13`, `pregunta14`, `pregunta15`, `pregunta16`, `comentarios`) VALUES ('$nombre', '$apellido', '$email', '$id_curso', NOW(), '$pregunta1', '$pregunta2', '$pregunta3', '$pregunta4', '$pregunta5', '$pregunta6', '$pregunta7', '$pregunta8', '$pregunta9', '$pregunta10', '$pregunta11', '$pregunta12', '$pregunta13', '$pregunta14', '$pregunta15', '$pregunta16', '$comentarios')"); 
         				 mysqli_query($con, $sql);
 
 						/* Fin Entrada de datos a BD  */

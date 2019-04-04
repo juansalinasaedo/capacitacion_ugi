@@ -130,7 +130,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 								
 							
 								<div class="step">
-									<h3 class="main_question"><strong>1/4</strong>Favor de llenar los campos requeridos</h3>
+									<h3 class="main_question">Favor de llenar los campos requeridos</h3>
 									<div class="row">
 
 										<!-- nombre  -->
@@ -245,7 +245,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
                              <!-- preguntas 1 y 2 -->
 								<div class="step">
-									<h3 class="main_question"><strong>2/4</strong>Experiencia de capacitación</h3>
+									<h3 class="main_question">Experiencia de capacitación</h3>
 									<div class="row">
 										<div class="col-md-12">
 											<div class="form-group clearfix">
@@ -312,7 +312,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 								 <!-- preguntas 3 al 7 -->
 								<div class="step">
-									<h3 class="main_question"><strong>2/4</strong>Experiencia de capacitación</h3>
+									<h3 class="main_question">Experiencia de capacitación</h3>
 									<div class="row">
 										<div class="col-md-12">
 											<div class="form-group clearfix">
@@ -455,7 +455,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 								  <!-- preguntas 8 y 9 -->
 								<div class="step">
-									<h3 class="main_question"><strong>2/4</strong>Relevancia de la actividad</h3>
+									<h3 class="main_question">Relevancia de la actividad</h3>
 									<div class="row">
 										<div class="col-md-12">
 											<div class="form-group clearfix">
@@ -519,7 +519,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 								  <!-- preguntas 10 y 11 -->
 								<div class="step">
-									<h3 class="main_question"><strong>2/4</strong>Evaluación global</h3>
+									<h3 class="main_question">Evaluación global</h3>
 									<div class="row">
 										<div class="col-md-12">
 											<div class="form-group clearfix">
@@ -583,7 +583,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 								<!-- pregunta 12 -->	
 								<div class="step">
-									<h3 class="main_question"><strong>2/4</strong>En relación a la actividad de capacitación</h3>
+									<h3 class="main_question">En relación a la actividad de capacitación</h3>
 									<br>
 									<h3 class="main_question"><strong>¿Lo visto en la actividad es aplicable a su trabajo?<br>Fundamente su respuesta.</strong></h3>
 									<div class="row">
@@ -598,7 +598,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 										
 
 										<div class="form-group">
-										<textarea name="pregunta12_2" class="icheck required" style="height:250px;" placeholder="Escriba sus fundamentos aqui"></textarea><br><br><br>
+										<textarea name="pregunta12_2" style="height:250px;" placeholder="Escriba sus fundamentos aqui"></textarea><br><br><br>
 									</div>
 									</div>
 									<!-- /row -->
@@ -610,7 +610,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 								<!-- pregunta 13 -->	
 								<div class="step">
-									<h3 class="main_question"><strong>2/4</strong>En relación a la actividad de capacitación</h3>
+									<h3 class="main_question">En relación a la actividad de capacitación</h3>
 									<br>
 									<h3 class="main_question"><strong>¿Recomendaría esta actividad a un compañero/a de su institución?<br>Fundamente su respuesta.</strong></h3>
 									<div class="row">
@@ -625,7 +625,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 										
 
 										<div class="form-group">
-										<textarea name="pregunta13_2" class="icheck required" style="height:250px;" placeholder="Escriba sus fundamentos aqui"></textarea><br><br><br>
+										<textarea name="pregunta13_2"  style="height:250px;" placeholder="Escriba sus fundamentos aqui"></textarea><br><br><br>
 									</div>
 									</div>
 									<!-- /row -->
@@ -637,9 +637,9 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 								<!-- pregunta 14 -->
 									<div class="step">
-									<h3 class="main_question"><strong>3/3</strong>Lo que más me gustó fue:</h3>
+									<h3 class="main_question">Lo que más me gustó fue:</h3>
 									<div class="form-group">
-										<textarea name="pregunta14" class="icheck required" style="height:300px; width: 450px;" placeholder="Escriba sus fundamentos aqui"></textarea> <br><br><br>
+										<textarea name="pregunta14" style="height:300px; width: 450px;" placeholder="Escriba sus fundamentos aqui"></textarea> <br><br><br>
 									</div>
 								</div>
 								<!-- fin pregunta 14 -->
@@ -647,9 +647,9 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 									<!-- pregunta 15 -->
 									<div class="step">
-									<h3 class="main_question"><strong>3/3</strong>Esta actividad mejoraría sí:</h3>
+									<h3 class="main_question">Esta actividad mejoraría sí:</h3>
 									<div class="form-group">
-										<textarea name="pregunta15" class="icheck required" style="height:300px; width: 450px;" placeholder="Escriba sus fundamentos aqui"></textarea> <br><br><br>
+										<textarea name="pregunta15" style="height:300px; width: 450px;" placeholder="Escriba sus fundamentos aqui"></textarea> <br><br><br>
 									</div>
 								</div>
 								<!-- fin pregunta 15 -->
@@ -657,9 +657,9 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
 									<!-- pregunta 16 -->
 									<div class="step">
-									<h3 class="main_question"><strong>3/3</strong>Finalmente, lo que aprendí de esta actividad es:</h3>
+									<h3 class="main_question">Finalmente, lo que aprendí de esta actividad es:</h3>
 									<div class="form-group">
-										<textarea name="pregunta16" class="icheck required" style="height:300px; width: 450px;" placeholder="Escriba sus fundamentos aqui"></textarea> <br><br><br>
+										<textarea name="pregunta16" style="height:300px; width: 450px;" placeholder="Escriba sus fundamentos aqui"></textarea> <br><br><br>
 									</div>
 								</div>
 								<!-- fin pregunta 16 -->
@@ -670,7 +670,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group">
-												<textarea id="mensaje" name="mensaje" class="icheck required" style="height:250px;" placeholder="Escriba sus fundamentos aqui"></textarea><br><br><br>
+												<textarea id="mensaje" name="mensaje" style="height:250px;" placeholder="Escriba sus fundamentos aqui"></textarea><br><br><br>
 											</div>
 										</div>
 										
